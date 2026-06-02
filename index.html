@@ -1131,11 +1131,25 @@ function switchTab(n){
   if(pg)pg.classList.add('active');
 }
 
-// ── ACCORDION TOGGLE ──────────────────────────────────────────
+// ── ACCORDION TOGGLE (tự thu gọn cùng cấp) ───────────────────
 function tog(bodyId,hdr){
   var body=document.getElementById(bodyId);
   if(!body)return;
   var isOpen=body.style.display==='block';
+
+  // Thu gọn tất cả anh em cùng cấp (cùng parent container)
+  var hdrClass=hdr.className.split(' ')[0]; // ch-hdr / gh / sh / dsh
+  var parent=hdr.parentElement; // .ch / .grp / .sec / .dsec
+  var container=parent.parentElement; // .ch-body / .grp-body / .pg / etc.
+  container.querySelectorAll(':scope > .'+parent.className.split(' ')[0]).forEach(function(sibling){
+    if(sibling===parent)return;
+    var sibHdr=sibling.querySelector('.'+hdrClass);
+    var sibBody=sibling.querySelector('.ch-body,.grp-body,.sec-body,.dsec-body');
+    if(sibHdr){sibHdr.classList.remove('open');}
+    if(sibBody){sibBody.style.display='none';}
+  });
+
+  // Toggle mục hiện tại
   body.style.display=isOpen?'none':'block';
   hdr.classList.toggle('open',!isOpen);
 }
