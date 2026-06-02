@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sổ Tay SM · FPT Long Châu MB2</title>
+<style>
+:root{
+  --bg:#F5F0E8;--sf:#FFFFFF;--sf2:#F0EBE0;--bd:#D4C4B0;
+  --tx:#2C1810;--tm:#8B6F5C;--td:#B8A090;
+  --p1:#1565C0;--p1d:#E3F0FF;--p1b:#90BBF0;
+  --p2:#2E7D32;--p2d:#E8F5E9;--p2b:#90C893;
+  --p3:#E65100;--p3d:#FFF3E0;--p3b:#FFAB70;
+  --p4:#6A1B9A;--p4d:#F3E5F5;--p4b:#CE93D8;
+  --gn:#2E7D32;--yw:#F57F17;--rd:#C62828;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);max-width:520px;margin:0 auto;font-size:13px;line-height:1.5}
+.hdr{position:sticky;top:0;z-index:100;background:#F5F0E8F5;border-bottom:2px solid var(--bd);padding:12px 16px}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.logo{display:flex;align-items:center;gap:8px}
+.ldot{width:8px;height:8px;border-radius:50%;background:var(--p1);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.ltxt{font-family:'SF Mono','Courier New',monospace;font-size:10px;font-weight:600;color:var(--tm)}
+.htitle{font-size:17px;font-weight:800;color:var(--tx)}
+.sw{position:relative}
+.si{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--tm);pointer-events:none}
+.sinp{width:100%;background:var(--sf);border:1.5px solid var(--bd);border-radius:7px;color:var(--tx);font-family:inherit;font-size:13px;padding:8px 12px 8px 34px;outline:none}
+.sinp:focus{border-color:var(--p1)}
+.sinp::placeholder{color:var(--td)}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;border:1.5px solid var(--bd);background:var(--sf);color:var(--tm);font-family:'SF Mono','Courier New',monospace;white-space:nowrap;display:inline-flex;align-items:center;-webkit-tap-highlight-color:rgba(0,0,0,.05);transition:background .15s,color .15s,border-color .15s}
+.tab[data-tab="1"].active{background:var(--p1d);border-color:var(--p1);color:var(--p1)}
+.tab[data-tab="2"].active{background:var(--p2d);border-color:var(--p2);color:var(--p2)}
+.tab[data-tab="3"].active{background:var(--p3d);border-color:var(--p3);color:var(--p3)}
+.tab[data-tab="4"].active{background:var(--p4d);border-color:var(--p4);color:var(--p4)}
+.main{padding:12px 16px 80px}
+.pg{display:none;flex-direction:column;gap:10px}
+.pg.active{display:flex}
+.ch{background:var(--sf);border-radius:10px;border:1.5px solid var(--bd);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ch-hdr{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--sf);-webkit-tap-highlight-color:rgba(0,0,0,.05);user-select:none}
+.chn{font-family:'SF Mono','Courier New',monospace;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;flex-shrink:0;border-width:1.5px;border-style:solid}
+.cht2{font-size:13px;font-weight:700;flex:1;color:var(--tx)}
+.chc{font-family:'SF Mono','Courier New',monospace;font-size:10px;color:var(--tm);flex-shrink:0}
+.cv{color:var(--tm);font-size:10px;transition:transform .2s;flex-shrink:0}
+.ch-body{display:none;padding:8px;background:var(--bg)}
+.grp{background:var(--sf);border-radius:7px;border:1.5px solid var(--bd);overflow:hidden;margin-bottom:8px}
+.grp:last-child{margin-bottom:0}
+.gh{display:flex;align-items:center;gap:9px;padding:11px 14px;cursor:pointer;background:var(--sf);-webkit-tap-highlight-color:rgba(0,0,0,.05);user-select:none}
+.gi{font-size:14px;flex-shrink:0}
+.gt{font-size:12px;font-weight:700;flex:1}
+.gc{font-family:'SF Mono','Courier New',monospace;font-size:10px;color:var(--tm);flex-shrink:0}
+.grp-body{display:none;padding:8px;background:var(--bg)}
+.sec{background:var(--sf);border-radius:6px;border:1px solid var(--bd);overflow:hidden;margin-bottom:6px}
+.sec:last-child{margin-bottom:0}
+.sh{display:flex;align-items:center;gap:9px;padding:10px 13px;cursor:pointer;background:var(--sf);-webkit-tap-highlight-color:rgba(0,0,0,.05);user-select:none}
+.sic{font-size:14px;flex-shrink:0}
+.sl{font-size:12px;font-weight:600;flex:1;color:var(--tx)}
+.sm{font-size:10px;color:var(--tm);font-family:'SF Mono','Courier New',monospace;flex-shrink:0}
+.sec-body{display:none;padding:12px 13px;background:var(--sf)}
+.dsec{background:var(--sf);border-radius:7px;border:1.5px solid var(--bd);overflow:hidden;margin-bottom:8px}
+.dsec:last-child{margin-bottom:0}
+.dsh{display:flex;align-items:center;gap:9px;padding:12px 14px;cursor:pointer;background:var(--sf);-webkit-tap-highlight-color:rgba(0,0,0,.05);user-select:none}
+.dsl{font-size:12px;font-weight:700;flex:1;color:var(--tx)}
+.dsm{font-size:10px;color:var(--tm);font-family:'SF Mono','Courier New',monospace;flex-shrink:0}
+.dsec-body{display:none;padding:12px 14px;background:var(--sf)}
+/* open states - single class replaces hundreds of CSS selectors */
+.ch-hdr.open{background:var(--p1d);border-bottom:1.5px solid var(--p1b)}
+.ch-hdr.open .cv{transform:rotate(180deg);color:var(--p1)}
+.gh.open{background:var(--p1d);border-bottom:1.5px solid var(--p1b)}
+.gh.open .cv{transform:rotate(180deg);color:var(--p1)}
+.sh.open{background:var(--sf2);border-bottom:1px solid var(--bd)}
+.sh.open .cv{transform:rotate(180deg)}
+.dsh.open{background:var(--sf2);border-bottom:1px solid var(--bd)}
+.dsh.open .cv{transform:rotate(180deg)}
+.ba{background:var(--p1d);border:1px solid var(--p1b);border-left:3px solid var(--p1);border-radius:6px;padding:9px 11px;font-size:12px;color:#0D47A1;line-height:1.6;margin-bottom:10px;font-weight:500;white-space:pre-line}
+.bn{background:#FFF8E1;border:1px solid #FFD54F;border-left:3px solid var(--yw);border-radius:6px;padding:9px 11px;font-size:12px;color:#4E342E;line-height:1.6;margin-bottom:10px;white-space:pre-line}
+.bn .nt{font-weight:700;color:#E65100;margin-bottom:3px;font-size:12px}
+.bw{background:#FFEBEE;border:1px solid #EF9A9A;border-left:3px solid var(--rd);border-radius:6px;padding:9px 11px;margin-bottom:10px}
+.bw .wt{font-weight:700;color:var(--rd);font-size:12px;margin-bottom:4px}
+.bw-body{font-size:12px;color:#4E342E;line-height:1.6}
+.bg2{background:#E8F5E9;border:1px solid #A5D6A7;border-left:3px solid var(--gn);border-radius:6px;padding:9px 11px;font-size:12px;color:#1B5E20;line-height:1.6;margin-bottom:10px;white-space:pre-line}
+.bg2 .gnt{font-weight:700;margin-bottom:3px}
+.stl{font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-family:'SF Mono','Courier New',monospace}
+.steps{background:var(--sf2);border:1px solid var(--bd);border-radius:6px;padding:2px 11px;margin-bottom:10px}
+.step{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--bd)}
+.step:last-child{border-bottom:none}
+.sn2{width:26px;height:26px;border-radius:50%;background:var(--p1);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;flex-shrink:0;font-family:'SF Mono','Courier New',monospace}
+.st3{font-size:12px;font-weight:700;color:var(--tx);margin-bottom:2px}
+.sd{font-size:11.5px;color:var(--tm);line-height:1.6;white-space:pre-line}
+.tw{border-radius:6px;overflow:hidden;border:1px solid var(--bd);margin-bottom:10px}
+table{width:100%;border-collapse:collapse}
+th{background:var(--sf2);padding:7px 10px;text-align:left;font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;border-bottom:1px solid var(--bd);font-family:'SF Mono','Courier New',monospace}
+td{padding:8px 10px;font-size:11.5px;vertical-align:top;border-bottom:1px solid var(--bd);line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--sf2)}
+td:first-child{color:var(--tx);font-weight:500}
+td:not(:first-child){color:var(--tm)}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.tag{background:#FFEBEE;border:1px solid #EF9A9A;color:#C62828;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500}
+.lnk{display:block;background:var(--p1d);border:1.5px solid var(--p1b);border-radius:6px;padding:8px 12px;color:var(--p1);font-size:12px;font-weight:600;text-decoration:none;text-align:center;margin-bottom:7px}
+.lnk:last-child{margin-bottom:0}
+.dv{height:1px;background:var(--bd);margin:10px 0}
+.cd{font-family:'SF Mono','Courier New',monospace;font-size:11px;background:var(--sf2);padding:8px 11px;border-radius:6px;color:#1565C0;margin-bottom:10px;line-height:1.8;border:1px solid var(--bd)}
+.wip{background:#FFF8E1;border:1.5px dashed #FFD54F;border-radius:6px;padding:14px;text-align:center;color:var(--tm);font-size:12px;font-style:italic;margin-bottom:8px}
+.footer{text-align:center;padding:20px;color:var(--td);font-size:10px;font-family:'SF Mono','Courier New',monospace;border-top:2px solid var(--bd)}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="logo"><div class="ldot"></div><span class="ltxt">FPT LONG CHÂU · MB2</span></div>
+    <div class="htitle">Sổ Tay SM</div>
+  </div>
+  <div class="sw"><span class="si">🔍</span><input class="sinp" type="text" id="searchInput" placeholder="Tìm nội dung..." oninput="doSearch(this.value)"></div>
+</div>
+<div class="tabs">
+  <div class="tab" data-tab="1" onclick="switchTab(1)">🔧 Vận hành</div>
+  <div class="tab" data-tab="2" onclick="switchTab(2)">📦 Kho &amp; KK</div>
+  <div class="tab" data-tab="3" onclick="switchTab(3)">🏛️ Quy định</div>
+  <div class="tab" data-tab="4" onclick="switchTab(4)">🎯 Kỹ năng</div>
+</div>
+<div class="main">
+<div id="sout" style="display:none;flex-direction:column;gap:6px"></div>
+<div id="empty" style="display:none;text-align:center;padding:40px;color:var(--tm);font-size:13px">Không tìm thấy kết quả</div>
+<div class="pg" id="p1">
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p1c1',this)"><span class="chn" style="color:var(--p1);background:var(--p1d);border-color:var(--p1b)">CH.1</span><span class="cht2">Hàng hóa</span><span class="chc">5 nhóm</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p1c1">
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c1g1',this)"><span class="gi">📥</span><span class="gt" style="color:var(--p1)">Nhập hàng</span><span class="gc">3 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c1g1">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g1s1',this)"><span class="sic">🏭</span><span class="sl">Nhập hàng NCC</span><span class="sm">6 bước</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g1s1">
+<div class="ba">📌 100% nhập trên mRSA + dưới camera · Sắp xếp FEFO</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Kiểm tra địa chỉ HĐ</div><div class="sd">Sai địa chỉ → <strong>từ chối ngay</strong></div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Đối chiếu PO trên mRSA</div><div class="sd">mRSA → Nhập hàng NCC → chọn PO → đối chiếu mã SP, SL, giá, VAT</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Kiểm đếm dưới camera</div><div class="sd">Ngoại quan nguyên vẹn · HSD &gt; 2 tháng
+Sai lệch/hư → báo PM ngay
+• PM đồng ý → import PO mới · PM không đồng ý → từ chối, trả NCC</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Nhập hệ thống</div><div class="sd">Nhập số lô, HSD, ảnh HĐ → Lưu → Hoàn tất</div></div></div>
+<div class="step"><div class="sn2">B5</div><div><div class="st3">Lưu chứng từ</div><div class="sd">Giữ 1 liên BBBG có chữ ký → chuyển Kế toán HO</div></div></div>
+<div class="step"><div class="sn2">B6</div><div><div class="st3">Sắp xếp kho theo FEFO</div></div></div>
+</div>
+<div class="bn"><div class="nt">📋 Hàng bể vỡ/hư hỏng:</div>Chụp ảnh → Lập biên bản với NVC → Báo PM → Tạo ticket Claim NVC
+📧 FLC.HanhChinh@fpt.com + FLC.KhoHNI@fpt.com</div>
+<div class="bn"><div class="nt">📌 Xin chứng từ HĐ nhập hàng từ NCC:</div>Group Zalo: <strong>"Nhập hàng tổng"</strong></div>
+<a href="https://qms.fpt.com/document-detail/62e57037-bf6d-4313-94cf-2c086e81c8b7/view" class="lnk" target="_blank">📎 Tài liệu nhập hàng NCC</a>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g1s2',this)"><span class="sic">🔄</span><span class="sl">Nhập hàng từ Shop (LCNB)</span><span class="sm">4 bước</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g1s2">
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Kiểm tra khi NVC giao</div><div class="sd">Dưới camera: đúng phiếu YCĐC? Băng keo LC còn nguyên?</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Quét barcode & kiểm đếm</div><div class="sd">Quét YCĐC trên mRSA → kiểm SL + chất lượng · HSD &gt; 2 tháng</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Xử lý kết quả</div><div class="sd">✅ Đủ, đạt → Nhập mRSA → Hoàn tất
+⚠️ Thiếu/xấu → Báo SM trong 24h → kho trung gian chờ QA
+❌ Hàng hư → khu CXL → chờ lệnh LCNB rút về kho tổng</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Lưu & sắp xếp</div><div class="sd">Lưu YCĐC theo tháng → sắp xếp theo FEFO</div></div></div>
+</div>
+<div class="bn"><div class="nt">📋 Hàng bể vỡ/hư hỏng:</div>Chụp ảnh → Lập biên bản đồng kiểm NVC → Nhập SL đủ điều kiện → Hàng hỏng khu CXL → Tạo ticket Claim NVC
+📧 FLC.HanhChinh@fpt.com + FLC.KhoHNI@fpt.com</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g1s3',this)"><span class="sic">🏢</span><span class="sl">Nhập hàng từ Kho tổng</span><span class="sm">5 bước</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g1s3">
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Nhận hàng từ xe</div><div class="sd">Nhận từ xe kho tổng/NVC → kiểm tra dưới camera</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Đối chiếu BBBG</div><div class="sd">Ký + ghi rõ ngày tháng + tình trạng (Đủ / Thiếu / Dư)</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Quét barcode & kiểm đếm</div><div class="sd">Quét YCĐC trên mRSA → kiểm SL + chất lượng dưới camera</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Xử lý kết quả</div><div class="sd">✅ Đủ, đạt → Nhập mRSA → Hoàn tất
+⚠️ Thiếu/xấu → Báo SM 24h → kho trung gian chờ QA
+❌ Không đạt → Không nhập → để riêng, chờ kho tổng xử lý</div></div></div>
+<div class="step"><div class="sn2">B5</div><div><div class="st3">Lưu BBBG & sắp xếp</div><div class="sd">Lưu BBBG tại shop → sắp xếp theo FEFO</div></div></div>
+</div>
+<div class="bn"><div class="nt">⚠️ Đang kiểm kê:</div>Kho tổng về hàng → mail FLC.QA@fpt.com xin nhập trễ → kiểm kê xong mới nhập</div>
+<div class="stl">Xử lý khi nhập lệch sản phẩm</div>
+<div class="bn"><div class="nt">VD: thực tế thừa Cerebrolysin 5ml · thiếu Cerebrolysin 10ml · nhưng nhập đủ trên hệ thống</div><strong>Cách đúng:</strong> Kiểm kỹ dưới camera · nhập lệch LCNB đúng thực tế → để QA xử lý
+<strong>Nếu đã lỡ nhập đủ:</strong> Mail số HO tới FLC.KhoHNI@fpt.com · CC: ThamNTH18@fpt.com
+⚠️ Cách này phải chờ hỗ trợ rất lâu</div>
+<div class="ba">💡 Luôn kiểm hàng kỹ dưới camera · nhập lệch đúng thực tế</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c1g2',this)"><span class="gi">📤</span><span class="gt" style="color:var(--p1)">Xuất hàng</span><span class="gc">3 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c1g2">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g2s4',this)"><span class="sic">🔄</span><span class="sl">Xuất LCNB — Lệnh kéo từ MRP</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g2s4">
+<div class="ba">📌 Hệ thống MRP tự động tạo lệnh điều chuyển hàng giữa các shop / về kho tổng</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Nhận thông báo lệnh MRP</div><div class="sd">Hệ thống tự đẩy phiếu LCNB về mRSA</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Kiểm tra phiếu</div><div class="sd">mRSA → LCNB → kiểm tra mã SP, SL, kho xuất/nhập</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Soạn hàng + đóng gói</div><div class="sd">Soạn đúng mã + SL → niêm phong băng keo LC</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Bàn giao NVC</div><div class="sd">Bàn giao hàng + chứng từ trong thời hạn quy định</div></div></div>
+</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g2s5',this)"><span class="sic">📤</span><span class="sl">Xuất LCNB — Xuất theo YCĐC</span><span class="sm">5 bước</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g2s5">
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Nhận lệnh xuất</div><div class="sd">Từ YCĐC đã được duyệt trên hệ thống</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Soạn hàng</div><div class="sd">Đúng mã + SL → đối chiếu trước khi đóng gói</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Quét barcode xuất</div><div class="sd">Ghi nhận giảm tồn kho trên hệ thống</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Đóng gói + niêm phong</div><div class="sd">Nặng dưới → Nhẹ trên → Dễ vỡ giữa
+Dán băng keo Long Châu · KHÔNG che mã vạch/tên shop</div></div></div>
+<div class="step"><div class="sn2">B5</div><div><div class="st3">Bàn giao NVC</div><div class="sd">Bàn giao hàng + chứng từ</div></div></div>
+</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g2s6',this)"><span class="sic">🔃</span><span class="sl">Rút hàng thừa & Rút hàng lỗi</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g2s6">
+<div class="stl">Rút hàng thừa</div>
+<div class="ba">📌 Mục đích: Tối ưu tồn kho cận date · Kho tổng chỉ nhận SP đủ điều kiện</div>
+<div class="bw"><div class="wt">🚫 Hàng bị truy thu:</div><div class="bw-body"><div class="tags"><span class="tag">Cận date</span><span class="tag">Bạc màu</span><span class="tag">Phai mực lô/HSD</span><span class="tag">Rách seal</span><span class="tag">Bóc màng co</span><span class="tag">Bể vỡ/gãy</span><span class="tag">Móp méo</span><span class="tag">Bẩn dơ</span><span class="tag">Mất tem HDSD</span><span class="tag">Mất tem phụ</span><span class="tag">Dính băng keo</span><span class="tag">Đánh dấu vỏ hộp</span></div>
+</div></div>
+<div class="bw"><div class="wt">⚖️ Xử phạt:</div><div class="bw-body">• Shop có <strong>3 ngày</strong> từ ngày tạo phiếu<br>• Từ ngày thứ 4: phạt <strong>50.000đ/ngày</strong><br>• SL xuất đạt chuẩn ≥ 90%</div></div>
+<div class="dv"></div>
+<div class="stl">Rút hàng lỗi (Kho CXL/Thanh lý)</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Nhận thông báo từ Bộ phận Xử lý Hàng hóa</div><div class="sd">Kèm mã SP, số lô, HSD</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Chuyển vào tủ biệt trữ</div><div class="sd">Tránh bán nhầm</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Chờ lệnh rút</div><div class="sd">Hệ thống tự tạo phiếu LCNB sang kho CXL</div></div></div>
+</div>
+<div class="tw"><table><thead><tr><th>Kho</th><th>Người nhận</th><th>SĐT</th></tr></thead><tbody><tr><td>Kho tổng HN</td><td>Lê Thị Ngọc Anh</td><td>0834.336.979</td></tr><tr><td>Kho tổng MN</td><td>Lữ Lý Hậu</td><td>0925.983.939</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c1g3',this)"><span class="gi">⚖️</span><span class="gt" style="color:var(--p1)">Quy định & Xử phạt</span><span class="gc">1 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c1g3">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c1g3s7',this)"><span class="sic">⚖️</span><span class="sl">Quy định nhập hàng & xuất hàng LCNB</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c1g3s7">
+<div class="stl">Quy định nhập hàng</div>
+<div class="tw"><table><thead><tr><th>Vi phạm</th><th>Hình phạt</th></tr></thead><tbody><tr><td>Không kiểm hàng dưới camera → hàng hư/thất thoát</td><td>Bồi thường 100% giá trị hàng</td></tr><tr><td>Nhập hàng trễ quá 24h</td><td>Lần 1: Nhắc nhở · Từ lần 2: 50.000đ/ngày (tối đa 500.000đ)</td></tr><tr><td>Shop mới ≤ 30 ngày</td><td>Bắt đầu tính từ D+30</td></tr></tbody></table></div>
+<div class="stl">Thời hạn LCNB & Xử phạt xuất hàng</div>
+<div class="tw"><table><thead><tr><th>Hình thức</th><th>Thời hạn</th><th>Phạt trễ</th></tr></thead><tbody><tr><td>Shop → Shop (không qua KT)</td><td>3 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Shop (qua KT)</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Kho tổng → Shop</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Kho tổng (rút thừa)</td><td>3 ngày · SL ≥ 90%</td><td>Từ ngày 4: 50.000đ/ngày</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ Quy định:</div><div class="bw-body">• Shop &gt; 30 ngày: tính theo quy định · Shop ≤ 30 ngày: miễn phạt đến D+30<br>• Quá mốc chưa nhận hàng → <strong>chủ động liên hệ bộ phận gửi hàng</strong><br>• Bị phạt → mail <strong>FLC.QA@fpt.com</strong> + giải trình trên RSA</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c1d1',this)"><span class="sic">🔀</span><span class="dsl">LCNB Kho con</span><span class="dsm">5 bước</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c1d1">
+<div class="ba">📌 mRSA → LCNB → tab LC Kho con</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Tạo phiếu (+)</div><div class="sd">Nhấn Tạo phiếu → Tiếp tục</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Chọn kho xuất</div><div class="sd">010 hàng thường · 030 cắt liều · 020 khuyến mãi...</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Tìm sản phẩm</div><div class="sd">Nhập tên/mã/quét barcode → tích đúng Số lô - HSD → nhập SL</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Chọn lý do chuyển kho</div><div class="sd">Hệ thống tự nhảy Kho nhập tương ứng</div></div></div>
+<div class="step"><div class="sn2">B5</div><div><div class="st3">Tạo yêu cầu</div><div class="sd">Kiểm tra lại → bấm Tạo yêu cầu</div></div></div>
+</div>
+<div class="tw"><table><thead><tr><th>Trạng thái LCNB</th><th>Xử lý</th></tr></thead><tbody><tr><td>Chưa duyệt</td><td>Hệ thống tự hủy</td></tr><tr><td>Đã duyệt — LCNB thường</td><td>Hệ thống tự hủy</td></tr><tr><td>Đã duyệt — từ MRP</td><td>Chuyển KSNH phê duyệt hủy</td></tr></tbody></table></div>
+<a href="https://qms.fpt.com/document-detail/26a27f88-b9c6-483b-aa71-1801410decbb/view" class="lnk" target="_blank">📎 Tài liệu LCNB Kho con</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c1d2',this)"><span class="sic">🚚</span><span class="dsl">Claim nhà vận chuyển</span><span class="dsm">3 tình huống</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c1d2">
+<div class="bw"><div class="wt">⚠️ Kiểm tra ngay khi thùng có dấu hiệu:</div><div class="bw-body">Ẩm ướt · móp · rách · băng keo LC bị rạch · lộ khe hở cạnh thùng</div></div>
+<div class="stl">TH1 — NVC giao đồng kiểm (Viettel Post, Nhất Tín, Kerry...)</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Lập biên bản tại chỗ với NVC</div><div class="sd">Nhập SL đủ bán · hàng hỏng → khu CXL riêng</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Tạo ticket Claim NVC + Gửi mail kèm mã ticket</div><div class="sd">📧 FLC.HanhChinh@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
+</div>
+<div class="stl">TH2 — Xe kho tổng, xe còn tại chỗ</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Lập biên bản tại chỗ</div><div class="sd">Claim NVC chọn <strong>"Khác"</strong> + ghi rõ biển số xe tải</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Nhập SL đủ bán · hàng hỏng → khu CXL · Gửi mail</div><div class="sd">📧 FLC.HanhChinh@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
+</div>
+<div class="stl">TH3 — Phát hiện sau khi xe rời</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Nhập SL đủ bán · hàng hỏng → khu CXL · Tạo ticket · Trích xuất camera</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Gửi mail → QA kiểm tra và đưa ra hướng xử lý</div><div class="sd">📧 FLC.QA@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
+</div>
+<div class="bn"><div class="nt">💡 Lưu ý</div>Hàng rách vỏ nhẹ → giảm giá quỹ tự tin hoặc xin Ngành hàng → KHÔNG cần Claim</div>
+<a href="https://ssc.fptshop.com.vn/secure/SSC01CreateTicket.jspa" class="lnk" target="_blank">🔗 Tạo ticket Claim NVC</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p1c2',this)"><span class="chn" style="color:var(--p1);background:var(--p1d);border-color:var(--p1b)">CH.2</span><span class="cht2">Bán hàng</span><span class="chc">3 nhóm</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p1c2">
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c2g4',this)"><span class="gi">💬</span><span class="gt" style="color:var(--p1)">Tư vấn</span><span class="gc">3 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c2g4">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g4s9',this)"><span class="sic">💬</span><span class="sl">Dạ Có - Minh Bạch</span><span class="sm">4 bước</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g4s9">
+<div class="ba">📌 Không tự ý đổi biệt dược · Minh bạch giá để KH tự chọn Nội/Ngoại</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Nhận toa & "Dạ Có"</div><div class="sd">Chào đón · nhận toa · xác nhận số ngày thuốc
+💬 "Dạ đơn thuốc của mình nhà thuốc em có đầy đủ, anh/chị đợi em soạn thuốc nhé!"</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Chủ động lấy thuốc</div><div class="sd">1. Lấy đúng biệt dược bác sĩ kê
+2. Hết → tìm SP cùng hoạt chất/hàm lượng/dạng bào chế</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Tư vấn Nội/Ngoại</div><div class="sd">1-2 SP thay thế: lấy cả Nội + Ngoại lên khay → KH tự chọn
++ Xin SĐT tích điểm · Up-sell: App LC, vắc xin, SP kèm</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Gửi thuốc & Tạo ấn tượng</div><div class="sd">Nhấn mạnh xuất xứ · đồng kiểm công khai · trao SP bằng 2 tay</div></div></div>
+</div>
+<div class="bn"><div class="nt">💬 KH hỏi tại sao đổi hãng:</div>"Dạ SP thay thế có thành phần y hệt và đã được BYT cấp phép lưu hành. Điều quan trọng là đúng hoạt chất và hàm lượng bác sĩ chỉ định ạ."</div>
+<div class="bw"><div class="wt">⚖️ Vi phạm:</div><div class="bw-body">Lần 1: Cảnh cáo · Lần 2: 300.000đ · Lần 3: Kéo dài nâng lương 1 năm · Lần 4: Sa thải</div></div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g4s10',this)"><span class="sic">🔍</span><span class="sl">Tư vấn minh bạch xuất xứ SP</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g4s10">
+<div class="bn"><div class="nt">📌</div>Dùng bút khoanh tròn phần hướng dẫn cuối bill → nói KH quét mã kiểm tra
+• Thuốc: dichvucong.dav.gov.vn/congbogiathuoc/index
+• TPCN: nhathuoclongchau.com.vn/thuc-pham-chuc-nang</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g4s11',this)"><span class="sic">👨‍👩‍👧</span><span class="sl">Friendsell — Tài khoản gia đình</span><span class="sm">3-6 thành viên</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g4s11">
+<div class="ba">📌 Tối thiểu 3 · Tối đa 6 thành viên · &gt;12 tuổi: CCCD + SĐT · &lt;12 tuổi: SĐT chủ hộ</div>
+<div class="tw"><table><thead><tr><th>Thao tác</th><th>Lưu ý</th></tr></thead><tbody><tr><td>Tạo tài khoản gia đình</td><td>Không tìm thấy KH → tạo KH mới trước</td></tr><tr><td>Thêm thành viên</td><td>OTP xác thực cả chủ hộ + thành viên mới</td></tr><tr><td>Đồng bộ Vaccine</td><td>TK Vaccine phải tạo ≥24h · thiếu 1 người → upload giấy tờ TẤT CẢ thành viên</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ OTP hiệu lực 15 phút · Nhập sai 3 lần → khóa SĐT 24h</div></div>
+<a href="https://docs.google.com/document/d/1EuoTwlLA6_QGDy1lPE8EJP82_3zVSDQF/edit" class="lnk" target="_blank">📎 Hướng dẫn chi tiết tài khoản gia đình</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c2g5',this)"><span class="gi">📱</span><span class="gt" style="color:var(--p1)">Đơn hàng</span><span class="gc">4 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c2g5">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g5s12',this)"><span class="sic">📱</span><span class="sl">Đơn hàng ECOM</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g5s12">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Nhận thông báo</div><div class="sd">SM phân công NV xử lý trong <strong>5 phút</strong></div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Kiểm tra tồn kho</div><div class="sd">Đủ → soạn hàng · Không đủ → xin hàng/tư vấn SP thay thế</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Soạn hàng + Giao</div><div class="sd">Đóng gói đúng quy định · Hoàn tất thu tiền + giao hàng trên hệ thống</div></div></div>
+</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g5s13',this)"><span class="sic">💰</span><span class="sl">Đặt cọc & Hủy cọc</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g5s13">
+<div class="ba">📌 Cọc: 30% · Hiệu lực 15 ngày</div>
+<div class="tw"><table><thead><tr><th>Tình huống hủy</th><th>Hoàn tiền</th></tr></thead><tbody><tr><td>Hủy trong 24h đầu</td><td>Hoàn 100%</td></tr><tr><td>Hủy ngày 2-15, shop có hàng</td><td>Mất 100% tiền cọc</td></tr><tr><td>Hủy ngày 2-15, hết hàng</td><td>Hoàn 100%</td></tr></tbody></table></div>
+<div class="bn"><div class="nt">💵 Hoàn TM:</div>RSA → Hủy cọc → Tiền mặt → OTP → Xác nhận → Chi tiền</div>
+<div class="bn"><div class="nt">🏦 Hoàn CK:</div>RSA → Hủy cọc → Chuyển khoản → SMS link → KH điền TK → KT hoàn 2-3 ngày</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g5s14',this)"><span class="sic">💊</span><span class="sl">Đặt thuốc ung thư</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g5s14">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Liên hệ GR Zalo "Thuốc Ung Thư Miền Bắc"</div><div class="sd">Xác nhận còn hàng</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Tạo đơn cọc 30% + Gửi lên GR</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Hẹn KH ít nhất 2 tuần</div></div></div>
+</div>
+<div class="bw"><div class="wt">⚠️ Thuốc ung thư ≥5tr: tuyệt đối không đổi trả · &lt;5tr: nguyên hộp trả nguyên hộp</div></div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g5s15',this)"><span class="sic">💉</span><span class="sl">Thu cũ đổi mới bút Insulin</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g5s15">
+<div class="bw"><div class="wt">⚠️ Tối đa 5 bút/tháng/SĐT · Chỉ offline tại shop</div></div>
+<div class="bn"><div class="nt">B1 — Thu bút cũ:</div>mRSA → Nhập hàng → Mở tủ → Thu cũ đổi mới bút tiêm Insulin → mã 00039474</div>
+<div class="bn"><div class="nt">B2 — Bán bút mới:</div>RSA → Bán hàng → nhập mã SP → nhập đúng SĐT đã thu bút cũ → KM hiển thị → thanh toán</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c2g6',this)"><span class="gi">📌</span><span class="gt" style="color:var(--p1)">Quy định bán hàng</span><span class="gc">2 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c2g6">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g6s16',this)"><span class="sic">🧾</span><span class="sl">Biên nhận thanh toán</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g6s16">
+<div class="bw"><div class="wt">⚠️ 100% KH phải được giao biên nhận thanh toán</div><div class="bw-body">Không giao bill → phạt <strong>100% giá trị bill</strong> của đơn hàng đó</div></div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c2g6s17',this)"><span class="sic">✂️</span><span class="sl">Quy trình cắt liều</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c2g6s17">
+<div class="ba">📌 100% cắt liều bằng công thức trong hộc cắt liều · Lấy thành phần làm gốc</div>
+<div class="bw"><div class="wt">🚫 Tuyệt đối không bán lẻ TPCN Hot (trừ TH đặc biệt)</div></div>
+<div class="bg2"><div class="gnt">✅ NV được tự cắt liều khi:</div>• KH yêu cầu hàng ngoại · KH yêu cầu SP nhất định
+• KH thừa/thiếu cân, dị ứng thuốc, đã uống không khỏi</div>
+<div class="bw"><div class="wt">⚖️ Vi phạm:</div><div class="bw-body">Lần 1: Cảnh cáo · Lần 2: 100.000đ · Lần 3: 500.000đ · Lần 4: Không xét tăng lương</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c2d3',this)"><span class="sic">✔️</span><span class="dsl">Phê duyệt</span><span class="dsm">Quy trình 4 bước</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c2d3">
+<div class="bw"><div class="wt">⚠️ CẦN phê duyệt:</div><div class="bw-body"><div class="tags"><span class="tag">SP bị chặn số lượng bán</span><span class="tag">Đổi trả ngoài chính sách</span><span class="tag">Đơn hàng quá 30 ngày</span><span class="tag">Giảm giá phê duyệt Ngành hàng</span></div>
+</div></div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">NV liên hệ Support 87333</div><div class="sd">Cung cấp đầy đủ thông tin tình huống</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Support liên hệ PM → quyết định ≤5 phút</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Support phản hồi phương án</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">NV thực hiện theo phương án</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p1c3',this)"><span class="chn" style="color:var(--p1);background:var(--p1d);border-color:var(--p1b)">CH.3</span><span class="cht2">Đổi trả & Giảm giá</span><span class="chc">3 nhóm</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p1c3">
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c3g7',this)"><span class="gi">💲</span><span class="gt" style="color:var(--p1)">Giảm giá</span><span class="gc">3 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c3g7">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c3g7s18',this)"><span class="sic">✅</span><span class="sl">Giảm giá quỹ tự tin</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c3g7s18">
+<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Đối thủ BOD · bill trong 3 ngày → upload "Báo hàng giá cao" mRSA</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c3g7s19',this)"><span class="sic">⚖️</span><span class="sl">Giảm giá cân quỹ</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c3g7s19">
+<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Traphaco / Tâm Bình / Ecogreen: Điều chỉnh giá → inside + pass SM</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c3g7s20',this)"><span class="sic">📅</span><span class="sl">Giảm giá hàng cận date</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c3g7s20">
+<div class="tw"><table><thead><tr><th>Ngành hàng</th><th>6>HSD≥4T</th><th>4>HSD≥2T</th><th>HSD<2T</th></tr></thead><tbody><tr><td>Thuốc / TTBYT</td><td>10%</td><td>20%</td><td>40%</td></tr><tr><td>TPCN / Dược MP / FMCG</td><td>15%</td><td>30%</td><td>50%</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c3d4',this)"><span class="sic">✔️</span><span class="dsl">Phê duyệt</span><span class="dsm">Quy trình 4 bước</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c3d4">
+<div class="bw"><div class="wt">⚠️ CẦN phê duyệt:</div><div class="bw-body"><div class="tags"><span class="tag">SP bị chặn số lượng bán</span><span class="tag">Đổi trả ngoài chính sách</span><span class="tag">Đơn hàng quá 30 ngày</span><span class="tag">Giảm giá phê duyệt Ngành hàng</span></div>
+</div></div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">NV liên hệ Support 87333</div><div class="sd">Cung cấp đầy đủ thông tin tình huống</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Support liên hệ PM → quyết định ≤5 phút</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Support phản hồi phương án</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">NV thực hiện theo phương án</div></div></div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c3g8',this)"><span class="gi">🔄</span><span class="gt" style="color:var(--p1)">Đổi trả</span><span class="gc">2 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c3g8">
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c3g8s21',this)"><span class="sic">🔄</span><span class="sl">Đổi trả hàng</span><span class="sm">30 ngày</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c3g8s21">
+<div class="tw"><table><thead><tr><th>Loại</th><th>Điều kiện</th></tr></thead><tbody><tr><td>Lỗi NSX</td><td>Mọi ngành · TBYT: 1 năm · Miễn phí 100%</td></tr><tr><td>Không lỗi</td><td>Chưa qua sử dụng · ≤5 SP/mã · Mất vỏ hộp còn nguyên SP: thu 30%</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">🚫 Tuyệt đối không đổi trả:</div><div class="bw-body"><div class="tags"><span class="tag">Thuốc Covid</span><span class="tag">Thuốc UT ≥5tr</span><span class="tag">Tiêm chích</span><span class="tag">Hàng lạnh</span><span class="tag">Hàng cắt liều</span><span class="tag">Hàng đặt theo YC</span><span class="tag">Que/bút thử</span><span class="tag">Bình xịt/nước</span><span class="tag">Kem/gel tuýp</span><span class="tag">Đã bóc seal</span><span class="tag">Vỉ đã cắt/đã dùng</span><span class="tag">Hàng KM</span></div>
+</div></div>
+<div class="tw"><table><thead><tr><th>Hoàn tiền</th><th>Thời gian</th></tr></thead><tbody><tr><td>Tiền mặt</td><td>Nhận ngay tại quầy</td></tr><tr><td>Chuyển khoản</td><td>KH điền link qua SMS → 2-3 ngày làm việc</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p1c3g8s22',this)"><span class="sic">🔍</span><span class="sl">Xử lý khi không có SĐT / không có bill</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p1c3g8s22">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Tìm theo lịch sử giao dịch mã SP</div><div class="sd">RSA → tra cứu lịch sử → nhập mã SP → lọc theo thời gian KH cung cấp</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Hỏi KH thu hẹp kết quả</div><div class="sd">Mua khoảng thời gian nào? SP mua kèm gì? TM hay CK?</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Không tìm được đơn</div><div class="sd">Giải thích lịch sự · Đề nghị KH kiểm tra SĐT khác</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p1c4',this)"><span class="chn" style="color:var(--p1);background:var(--p1d);border-color:var(--p1b)">CH.4</span><span class="cht2">Quỹ & Kế toán</span><span class="chc">3 nhóm</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p1c4">
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c4g9',this)"><span class="gi">💵</span><span class="gt" style="color:var(--p1)">Thu chi</span><span class="gc">5 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c4g9">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g9d1',this)"><span class="sic">🏦</span><span class="dsl">Nộp tiền bán hàng</span><span class="dsm">D+1 · 2 quỹ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g9d1">
+<div class="ba">📌 Nộp 2 quỹ: Quỹ TM Nhà thuốc + Quỹ TM Vệ tinh</div>
+<div class="cd">Mã shop - Nộp tiền bán hàng ngày dd/mm/yyyy
+Mã shop - Vệ tinh - Nộp tiền bán hàng ngày dd/mm/yyyy</div>
+<div class="tw"><table><thead><tr><th>Kênh nộp</th><th>Thời hạn</th></tr></thead><tbody><tr><td>Ngân hàng</td><td>Trước 16h ngày D+1</td></tr><tr><td>FPTShop &lt;10km</td><td>Trước 12h ngày D+1</td></tr><tr><td>FPTShop ≥10km</td><td>Trước 16h ngày D+1</td></tr><tr><td>T7, CN, lễ</td><td>Nộp qua FPTShop theo lịch làm việc</td></tr><tr><td>Tết (FPTShop nghỉ)</td><td>Trước 12h ngày làm việc đầu tiên</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ Nộp sai không giải trình → cheating tài chính → truy thu</div></div>
+<a href="https://drive.google.com/drive/folders/1Xd9mNN7Oyp5PXSxyBjnVomRs15WK7FpW" class="lnk" target="_blank">📎 Hướng dẫn nộp tiền</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g9d2',this)"><span class="sic">💳</span><span class="dsl">Bán nợ</span><span class="dsm">3-30 ngày</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g9d2">
+<div class="bn"><div class="nt">📋 KH cũ:</div>Kiểm tra hạn mức: RSA → Vận hành shop → Công nợ → bán hàng luôn</div>
+<div class="bn"><div class="nt">📋 KH mới:</div>SM gửi mail xin cấp:
+To: TuPV@fpt.com + FLC.Ketoancongno@fpt.com · Cc: ASM
+Subject: Mã shop_Bán nợ</div>
+<div class="ba">📌 Thu hồi 3-30 ngày · KH thanh toán → gửi chứng từ về loop mail "Bán nợ" → KTHO gạch nợ</div>
+<a href="https://qms.fpt.com/document-detail/8bc77dbc-5da2-4ffa-9504-baa16fa2dbbd/view" class="lnk" target="_blank">📎 Quy trình bán nợ</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g9d3',this)"><span class="sic">📊</span><span class="dsl">Thu/Chi khác trên RSA</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g9d3">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">RSA → Thu/Chi Khác</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Chọn Tạo yêu cầu Thu hoặc Chi</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Chọn hạng mục + Điền thông tin → Tạo phiếu (F3)</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Xác nhận hoàn tất</div><div class="sd">Hệ thống sinh số chứng từ</div></div></div>
+</div>
+<div class="bw"><div class="wt">⚠️ Phiếu chi vượt hạn mức → đính kèm ảnh + lý do → Chờ duyệt ASM · Yêu cầu thanh toán trong <strong>7-15 ngày</strong></div></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g9d4',this)"><span class="sic">🧾</span><span class="dsl">Hóa đơn VAT</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g9d4">
+<div class="ba">📌 Hạn chế Trả hàng → Xuất bán lại · Dùng "Điều chỉnh hóa đơn" thay vì trả hàng</div>
+<a href="https://drive.google.com/drive/folders/1XgORInJh1q-tNSo2KXVNKujPWiOlUH_o" class="lnk" target="_blank">📎 Hướng dẫn cấp phát & điều chỉnh HĐ</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g9d5',this)"><span class="sic">💻</span><span class="dsl">Epayment & Ứng quỹ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g9d5">
+<div class="bg2"><div class="gnt">✅ Dùng cho:</div>• Ứng tiền quỹ shop mới: 2.000.000đ
+• Tạo đề nghị thanh toán/tạm ứng chi phí (7-15 ngày từ ngày phát sinh)
+• Thao tác trên epayment.fpt.com</div>
+<a href="https://qms.fpt.com/document-detail/e028aa5f-708d-477c-a254-ffa4355ffc7b/view" class="lnk" target="_blank">📎 Hướng dẫn tạo đề nghị thanh toán</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c4g10',this)"><span class="gi">📊</span><span class="gt" style="color:var(--p1)">Kế toán</span><span class="gc">4 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c4g10">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g10d6',this)"><span class="sic">💳</span><span class="dsl">Máy POS cà thẻ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g10d6">
+<div class="ba">📌 Máy POS phải đặt trên mặt quầy · Hỏng → báo KT HO ngay → KTHO xử lý D+2</div>
+<a href="https://drive.google.com/drive/folders/1SFgyJN8kxojsg3CB3LxNFwsBPHk4Iwh_" class="lnk" target="_blank">📎 DS user hỗ trợ kế toán</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g10d7',this)"><span class="sic">💸</span><span class="dsl">Hoàn tiền KH</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g10d7">
+<div class="ba">📌 Gửi email đến: FLC.Ketoancongno@fpt.com
+Tiêu đề: [Mã shop]_HOÀN TIỀN</div>
+<div class="bn"><div class="nt">📋 Nội dung email:</div>• Mã đơn hàng:
+• Hình thức thanh toán (phương thức thanh toán gốc):
+• Số tiền hoàn:
+• Tên người thụ hưởng:
+• Số tài khoản & Ngân hàng:
+• Lý do hoàn tiền:</div>
+<div class="bg2"><div class="gnt">📑 Bắt buộc đủ 3 chứng từ:</div>1. Đề nghị thanh toán có chữ ký của SM & mộc đỏ của shop
+2. Chứng từ xác nhận giao dịch thành công
+3. Các chứng từ bổ sung khác (nếu có)</div>
+<div class="ba">⏳ Thời gian xử lý: 2-3 ngày làm việc (không tính T7, CN & Lễ, Tết)</div>
+<a href="https://drive.google.com/drive/folders/12I7eY0PTt47Qptmfb2wzwdSFPhc5k2io" class="lnk" target="_blank">📎 Hướng dẫn gửi yêu cầu hoàn tiền</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g10d8',this)"><span class="sic">🔍</span><span class="dsl">Kiểm tra giao dịch chuyển khoản</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g10d8">
+<div class="ba">📌 Công cụ kiểm tra: report.frt.vn/report/phar/importBalanceReport</div>
+<div class="stl">1. Thanh toán QR code</div>
+<div class="bn"><div class="nt">📌</div>Hệ thống tự sinh QR gắn với nội dung · số tiền · mã riêng từng đơn
+KHÔNG chỉnh sửa nội dung · STK · số tiền · Thay đổi đơn → lấy lại QR mới cho khách quét</div>
+<div class="stl">2. Khách CK thẳng (không quét QR)</div>
+<div class="bn"><div class="nt">📌</div>Hướng dẫn KH chuyển vào Vietinbank/BIDV · nhập đúng cú pháp gợi ý → hệ thống tự đồng bộ</div>
+<div class="stl">3. Đơn không đồng bộ</div>
+<div class="bn"><div class="nt">📌</div>Chỉ đổi sang "CK có phê duyệt" khi đã có tiền về công ty
+Xác nhận qua Báo cáo số dư tiền vào hoặc KTHO</div>
+<div class="bw"><div class="wt">⚠️ Tự ý hoàn tất đơn khi chưa có tiền về → TRUY THU theo quy định</div></div>
+<a href="https://drive.google.com/drive/folders/1M5uu_m8rNpaRgLc76MMdPCFq79mGYl2i" class="lnk" target="_blank">📎 Chi tiết hướng dẫn các tình huống</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g10d9',this)"><span class="sic">📋</span><span class="dsl">Biên bản kiểm kê quỹ</span><span class="dsm">1 quý/lần</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g10d9">
+<div class="bn"><div class="nt">📌 BBKK quỹ là gì?</div>Số tiền thực tế shop đang giữ tại két · cũng là con số shop tổng kết đi nộp ngày D+1</div>
+<div class="bn"><div class="nt">📌 Thực hiện:</div>Dùng đúng file KT cung cấp · thao tác phần màu cam tại các ô ký tự màu đỏ
+Không dùng đúng file KT cung cấp → <strong>KT không nhận BBKK</strong></div>
+<div class="bn"><div class="nt">📌 Gửi BBKK:</div>Group Zalo: <strong>"BIÊN BẢN KIỂM KÊ QUỸ KV.MB2 - Các TB Quan trọng"</strong>
+Cú pháp: Mã shop (8****) · VD: 80073 · 81145 · 80244</div>
+<div class="ba">⏳ Thời hạn: Hoàn tất trước 12h ngày 15 của tháng đầu quý tiếp theo</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p1c4g11',this)"><span class="gi">📞</span><span class="gt" style="color:var(--p1)">Danh sách liên hệ bộ phận Kế toán</span><span class="gc">2 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p1c4g11">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g11d10',this)"><span class="sic">📧</span><span class="dsl">Email Kế toán theo nhóm công việc</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g11d10">
+<div class="tw"><table><thead><tr><th>Nhóm</th><th>Email</th><th>Dùng cho</th></tr></thead><tbody><tr><td>Công nợ, Quỹ, HĐ — Nhà thuốc</td><td>flc.ketoancongno@fpt.com</td><td>Đối soát công nợ, quỹ bán hàng, xuất HĐ</td></tr><tr><td>Công nợ, Quỹ, HĐ — Vaccine</td><td>flc.ketoanvaccine@fpt.com</td><td>Đối soát công nợ, quỹ bán hàng, xuất HĐ</td></tr><tr><td>Chi phí, Phiếu Thu/Chi khác</td><td>flc.ketoanchiphi@fpt.com</td><td>Duyệt phiếu chi, chi phí vận hành</td></tr><tr><td>Các vấn đề khác</td><td>flc.ketoan@fpt.com</td><td>Nội dung chung, chưa xác định rõ nhóm</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p1c4g11d11',this)"><span class="sic">📞</span><span class="dsl">User hỗ trợ shop theo nghiệp vụ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p1c4g11d11">
+<div class="stl">💵 Quỹ Tiền Mặt — Miền Bắc 2</div>
+<div class="bn"><div class="nt">📌</div>Lê Thị Ngọc Huỳnh — 0928713127</div>
+<div class="stl">💳 Thẻ – Máy POS — Miền Đông & Miền Bắc 2</div>
+<div class="bn"><div class="nt">📌</div>Phạm Thị Thanh Hương — 0764141306</div>
+<div class="tw"><table><thead><tr><th>Nghiệp vụ</th><th>Người phụ trách</th><th>SĐT</th></tr></thead><tbody><tr><td>Hoàn tiền</td><td>Lê Hoàng Thơ / Phạm Thị Kiều Uyên</td><td>0962982741 / 0352125740</td></tr><tr><td>Chuyển khoản — Nhà thuốc</td><td>Lưu Thị Thảo Quyên</td><td>0979 185 101</td></tr><tr><td>Điều chỉnh HĐ — Nhà thuốc</td><td>Nguyễn Lê Nhã Trúc</td><td>0905176799</td></tr><tr><td>Bán nợ</td><td>Bùi Thị Thanh Vân</td><td>0909931511</td></tr></tbody></table></div>
+<a href="https://drive.google.com/drive/folders/1SFgyJN8kxojsg3CB3LxNFwsBPHk4Iwh_" class="lnk" target="_blank">📎 DS user hỗ trợ đầy đủ</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pg" id="p2">
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p2c1',this)"><span class="chn" style="color:var(--p2);background:var(--p2d);border-color:var(--p2b)">CH.1</span><span class="cht2">Kiểm kê</span><span class="chc">4 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p2c1">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c1d1',this)"><span class="sic">🏪</span><span class="dsl">Kiểm kê All Shop</span><span class="dsm">3 tháng/lần</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c1d1">
+<div class="ba">📌 Tần suất: 3 tháng/lần · Đối chiếu tồn kho thực tế vs hệ thống</div>
+<div class="bn"><div class="nt">📋 Xử lý chênh lệch:</div>Lập biên bản → xác định nguyên nhân → gửi ticket báo cáo về Quản lý kho/KSNB</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c1d2',this)"><span class="sic">📅</span><span class="dsl">Kiểm kê cận date</span><span class="dsm">Ngày 26-28 · Tem vàng + Tem hồng</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c1d2">
+<div class="ba">📌 Ngày 26-28 hàng tháng · Hệ thống Auto đẩy phiếu về mRSA</div>
+<div class="stl">Ngưỡng kiểm kê — TEM VÀNG</div>
+<div class="tw"><table><thead><tr><th>Ngành hàng</th><th>Ngưỡng HSD</th></tr></thead><tbody><tr><td>Thuốc, TPCN, TBYT, FMCG</td><td>Dưới 9 tháng</td></tr><tr><td>Dược mỹ phẩm, Kit test</td><td>Dưới 12 tháng</td></tr><tr><td>Trà, bánh kẹo, TP bổ dưỡng</td><td>Dưới 4 tháng</td></tr></tbody></table></div>
+<div class="ba">📌 TEM HỒNG: Tất cả SP dán tem hồng ở kho thường (010) · Kho cắt liều (030) · Kho KM (020)</div>
+<div class="bw"><div class="wt">⚠️ Không kiểm:</div><div class="bw-body"><div class="tags"><span class="tag">Kho thanh lý</span><span class="tag">Kho chờ xử lý</span><span class="tag">Kho đặt lẻ</span><span class="tag">SP đặc trị Covid</span></div>
+</div></div>
+<div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>SP cận date tem hồng · SP hết date → chuyển kho thanh lý
+Tem hồng → chỉ kiểm số lượng, không in lại barcode</div>
+<a href="https://qms.fpt.com/document-detail/b539c178-b8da-437e-811e-d15e46def012/view" class="lnk" target="_blank">📎 Tài liệu kiểm kê cận date</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c1d3',this)"><span class="sic">🔃</span><span class="dsl">Kiểm kê rút hàng đổi date</span><span class="dsm">Phát sinh · KSNH</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c1d3">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Nhận phiếu từ KSNH trên mRSA</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Nhập SL SP thuộc date yêu cầu → Hoàn tất</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Để riêng hàng đã kiểm → chờ lệnh rút</div></div></div>
+</div>
+<div class="bw"><div class="wt">⚠️ Tiêu chuẩn hàng được rút:</div><div class="bw-body">Còn nguyên hộp · không lẻ viên/ống
+<div class="tags"><span class="tag">Không bạc màu</span><span class="tag">Không cũ bẩn</span><span class="tag">Không rách seal</span><span class="tag">Không móp méo</span></div>
+</div></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c1d4',this)"><span class="sic">📊</span><span class="dsl">KPI hàng cận date</span><span class="dsm">Công thức X · Hệ số</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c1d4">
+<div class="ba">📌 X = Doanh số bán hàng cận date / Tổng giá trị hàng kiểm kê cận date trong tháng</div>
+<div class="tw"><table><thead><tr><th>Kết quả X</th><th>Hệ số</th></tr></thead><tbody><tr><td>X &lt; 80%</td><td>× 0.7</td></tr><tr><td>X ≥ 80%</td><td>× 1.1</td></tr></tbody></table></div>
+<div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>HSD ≤ 2 tháng · Hàng đặc trị · Hàng cắt liều · Thuốc kê đơn không có sức bán 90 ngày · Kit test Covid · Tem hồng · Shop mở bán &lt; 2 tháng</div>
+<div class="bn"><div class="nt">⚠️ Lưu ý</div>Hàng cận date CHỈ tính khi bán bằng BARCODE CẬN DATE đã dán khi kiểm kê</div>
+<a href="https://qms.fpt.com/document-detail/c11c55c7-b8f2-4dc7-b056-d637712b9ddf/view" class="lnk" target="_blank">📎 Quy định tính KPI cận date</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p2c2',this)"><span class="chn" style="color:var(--p2);background:var(--p2d);border-color:var(--p2b)">CH.2</span><span class="cht2">Nhiệt độ &amp; Độ ẩm tại shop</span><span class="chc">1 nhóm + 1 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p2c2">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c2d5',this)"><span class="sic">🌡️</span><span class="dsl">Tiêu chuẩn bảo quản</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c2d5">
+<div class="tw"><table><thead><tr><th>Vị trí</th><th>Nhiệt độ</th><th>Độ ẩm</th></tr></thead><tbody><tr><td>Shop</td><td>≤ 30°C</td><td>≤ 75%</td></tr><tr><td>Tủ lạnh</td><td>2-8°C</td><td>—</td></tr></tbody></table></div>
+<div class="bn"><div class="nt">⚠️ Lưu ý vận hành:</div>Thường xuyên kiểm tra nhiệt độ &amp; độ ẩm của shop và tủ lạnh
+Tủ lạnh hay gặp lỗi <strong>bị âm nhiệt độ</strong> → kiểm tra định kỳ · điều chỉnh vị trí đặt đầu dò:
+• Không đặt sát phần thổi ra hơi lạnh
+• Để cách 1 tầng</div>
+</div>
+</div>
+<div class="grp">
+<div class="gh" onclick="tog('body-p2c2g1',this)"><span class="gi">⚙️</span><span class="gt" style="color:var(--p2)">Vận hành</span><span class="gc">2 mục</span><span class="cv">▼</span></div>
+<div class="grp-body" id="body-p2c2g1">
+<div class="sec">
+<div class="sh" onclick="tog('body-p2c2g1s1',this)"><span class="sic">❄️</span><span class="sl">Vận hành điều hòa</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p2c2g1s1">
+<div class="bw"><div class="wt">⚠️ Quy định bắt buộc:</div><div class="bw-body">• Cài đặt điều hòa <strong>từ 25°C trở lên</strong> — không được để dưới 25°C<br>• Khi bật điều hòa → <strong>bắt buộc đóng cửa kính</strong><br>• <strong>Nghiêm cấm</strong> để 17°C khi cửa kính đang mở</div></div>
+<div class="bw"><div class="wt">⚖️ Vi phạm → 100.000đ/lỗi:</div><div class="bw-body">• SM + NV: chịu <strong>70%</strong> tổng vi phạm/tháng<br>• ASM liên đới: chịu <strong>30%</strong> tổng vi phạm/tháng</div></div>
+<div class="ba" style="background:#FFF8E1;border-left:3px solid #F57F17;color:#4E342E;font-size:12px;padding:9px 11px;border-radius:6px;margin-bottom:10px;line-height:1.6;white-space:pre-line">🌞 <strong>MÙA HÈ (10H - 15H)</strong>
+Được phép đóng cửa kính để giữ nhiệt · nhưng phải <strong>chủ động ra mở cửa</strong> khi có khách vào
+Phải có <strong>ít nhất 1 NV ngồi tại quầy</strong> để KH nhìn vào biết shop đang hoạt động</div>
+<div class="ba">📞 Thắc mắc liên hệ FQA: 0936.026.410</div>
+</div>
+</div>
+<div class="sec">
+<div class="sh" onclick="tog('body-p2c2g1s2',this)"><span class="sic">🧊</span><span class="sl">Vận hành tủ lạnh</span><span class="sm">2-8°C · Layout · Bảo trì</span><span class="cv">▼</span></div>
+<div class="sec-body" id="body-p2c2g1s2">
+<div class="tw"><table><thead><tr><th>Thiết bị</th><th>Cài đặt</th></tr></thead><tbody><tr><td>Tủ Aqua</td><td>Mức 3-4/7</td></tr><tr><td>Tủ màn hình kỹ thuật số</td><td>Cài 2-6°C</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ Dán nhãn bên ngoài tủ: "KHÔNG ĐỂ THỰC PHẨM - CHỈ ĐỂ THUỐC"</div></div>
+<div class="stl">Sắp xếp layout</div>
+<div class="tw"><table><thead><tr><th>Vị trí</th><th>Hàng hóa</th></tr></thead><tbody><tr><td>Tầng 1+2</td><td>Thuốc tiêm chích</td></tr><tr><td>Tầng 3+4</td><td>Thuốc kê đơn</td></tr><tr><td>Hộc tủ</td><td>Thuốc KSĐB</td></tr><tr><td>Cửa tủ</td><td>Thuốc KKĐ</td></tr></tbody></table></div>
+<div class="stl">Xử lý khi mất điện</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Lấy đá gel từ tủ đông → đặt xuống đáy tủ 2-8°C</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Xếp bút tiêm ở ngăn trên (đá gel ngăn dưới)</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p2c3',this)"><span class="chn" style="color:var(--p2);background:var(--p2d);border-color:var(--p2b)">CH.3</span><span class="cht2">Xuất sử dụng</span><span class="chc">1 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p2c3">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p2c3d6',this)"><span class="sic">📤</span><span class="dsl">Quy trình xuất sử dụng</span><span class="dsm">SM → ASM → EHO → DS</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p2c3d6">
+<div class="bw"><div class="wt">⚠️ ASM mới được phân quyền — SM không tự tạo trên EHO được</div></div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">SM chuẩn bị file Excel</div><div class="sd">Mã SP · Số lượng · Dùng cho chương trình gì</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">SM gửi file cho ASM</div><div class="sd">ASM tạo yêu cầu và gửi duyệt trên EHO</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">DS xuất hàng trên mRSA</div><div class="sd">Notification → mRSA → Xuất sử dụng → tìm mã YC → Soạn hàng → Chọn barcode → Xuất hàng</div></div></div>
+</div>
+<div class="tw"><table><thead><tr><th>Trạng thái</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>Lưu nháp</td><td>Chưa gửi, còn sửa được</td></tr><tr><td>Chờ duyệt</td><td>Đã gửi, chờ phê duyệt</td></tr><tr><td>Chờ xuất hàng</td><td>Đã duyệt, DS chưa xuất</td></tr><tr><td>Hoàn tất</td><td>Xuất thành công</td></tr><tr><td>Xuất 1 phần</td><td>Có SP không xuất được</td></tr><tr><td>Từ chối</td><td>Bị từ chối duyệt</td></tr></tbody></table></div>
+<a href="https://qms.fpt.com/document-detail/5cbfc7e4-b7c1-4473-bc49-21b96a4c395a/view" class="lnk" target="_blank">📎 DS xuất hàng mRSA</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pg" id="p3">
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p3c1',this)"><span class="chn" style="color:var(--p3);background:var(--p3d);border-color:var(--p3b)">CH.1</span><span class="cht2">Tiếp đoàn</span><span class="chc">4 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p3c1">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c1d1',this)"><span class="sic">🏛️</span><span class="dsl">Tiếp đoàn SYT/GPP</span><span class="dsm">Hồ sơ · Sổ sách · 6 bước</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c1d1">
+<div class="ba">📌 ĐẦU MỐI QUAN TRỌNG
+Group FPTChat: "FLC Giấy Tờ Miền Bắc 2"</div>
+<div class="stl">Giấy tờ pháp lý (bản sao CN — không giao bản chính)</div>
+<div class="bn"><div class="nt">📋</div>Giấy CN đăng ký địa điểm KD · Giấy CN đăng ký KD Công ty · Giấy CN đủ ĐK KD Dược · Giấy CN GPP</div>
+<div class="stl">Hồ sơ nhân viên</div>
+<div class="bn"><div class="nt">📋 NV thường:</div>CCCD CN · Xác nhận cư trú VNeID · Sơ yếu lý lịch · Giấy khám SK (TT14) · Bằng TN CN · HĐLĐ</div>
+<div class="bn"><div class="nt">📋 DS chuyên môn (thêm):</div>CCHN CN · Quyết định bổ nhiệm · CME (8-12 tiết) — bắt buộc nếu CCHN ≥ 3 năm</div>
+<a href="https://insidepharmacy.fptshop.com.vn/LongChau.aspx" class="lnk" target="_blank">📎 Tải hồ sơ NV bản scan: Đăng nhập → Trang cá nhân → Hồ sơ → Tải xuống</a>
+<div class="stl">Sổ sách nhà thuốc</div>
+<div class="tw"><table><thead><tr><th>Tên sổ</th><th>Chu kỳ</th></tr></thead><tbody><tr><td>Sổ vệ sinh nhà thuốc</td><td>1 tháng/lần</td></tr><tr><td>Kiểm soát đặc biệt 001,003-007</td><td>1 tháng/lần</td></tr><tr><td>Phiếu theo dõi nhiệt độ tủ lạnh</td><td>1 tháng/lần</td></tr><tr><td>Sổ kiểm soát thuốc định kỳ 002</td><td>3 tháng/lần</td></tr><tr><td>Sổ theo dõi khiếu nại KH</td><td>1 tháng/lần</td></tr><tr><td>Sổ theo dõi đơn thuốc không hợp lệ</td><td>1 tháng/lần</td></tr><tr><td>Sổ theo dõi tác dụng phụ</td><td>1 tháng/lần</td></tr><tr><td>Sổ nhập thuốc bảo quản 2-8°C</td><td>1 tháng/lần</td></tr><tr><td>Sổ nhập thuốc</td><td>1 tháng/lần</td></tr><tr><td>Sổ xuất nhập tồn</td><td>Khi có yêu cầu</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ Sổ 007: nộp SYT từ ngày 01-15 tháng 1 và tháng 7</div></div>
+<div class="stl">Checklist chuẩn bị trước khi đoàn đến</div>
+<div class="bn"><div class="nt">✅</div>Vệ sinh sạch sẽ · NV đeo thẻ + blouse · Hàng hư/hết hạn → tủ biệt trữ · Màn hình tra giá quay ra ngoài · Niêm yết CCHN/GPP/ĐKKD · Nhiệt ẩm kế còn hạn + dữ liệu in 1T/lần · Toa thuốc chụp + in + lưu</div>
+<div class="stl">6 bước khi đoàn đến</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Chào hỏi & xem công văn</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Ngưng bán hàng · Báo ASM ngay</div><div class="sd">Kéo cửa kính → bật điều hòa/quạt · Báo ASM biết thông tin đoàn</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Gọi DSCM + Báo GPP</div><div class="sd">Gọi DSCM/người được ủy quyền đến shop ngay · Thông báo phòng GPP</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Xuất trình hồ sơ</div><div class="sd">Xuất trình giấy phép, sổ sách theo yêu cầu → giải đáp thắc mắc</div></div></div>
+<div class="step"><div class="sn2">B5</div><div><div class="st3">Nhắn Group FPTChat nếu thiếu tài liệu</div><div class="sd">Group: "FLC Giấy Tờ Miền Bắc 2" ⬅️ GHIM ĐẦU NHÓM
+Mẫu: Mã shop – LC... [địa chỉ] / User – Họ tên – SĐT – Chức vụ / Lý do + Nội dung</div></div></div>
+<div class="step"><div class="sn2">B6</div><div><div class="st3">Sau khi kết thúc</div><div class="sd">Đọc kỹ biên bản → có lỗi → liên hệ GPP TRƯỚC KHI KÝ
+TUYỆT ĐỐI không ký BB có ghi nhận lỗi khi chưa hỏi GPP
+Gửi BB cho GPP · Đoàn lấy mẫu → thông báo ngay GPP</div></div></div>
+</div>
+<div class="stl">Liên hệ phòng GPP Miền Bắc</div>
+<div class="tw"><table><thead><tr><th>Khu vực</th><th>Người phụ trách</th><th>SĐT</th></tr></thead><tbody><tr><td>Toàn quốc</td><td>Trần Thị Anh Đào</td><td>0978.842.689</td></tr><tr><td>Hà Nội</td><td>Trần Phương Lê</td><td>0989.786.111</td></tr><tr><td>HP, QN, HY, NB</td><td>Vũ Thị Yến</td><td>0979.173.798</td></tr><tr><td>BN, TN, LS, LC...</td><td>Nguyễn Thị Lành</td><td>0976.777.919</td></tr><tr><td>HT, NA, TH, PT...</td><td>Trần Vạn Thắng</td><td>0976.454.748</td></tr></tbody></table></div>
+<div class="ba">📧 FLC.GPP.MB@fpt.com</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c1d2',this)"><span class="sic">📋</span><span class="dsl">Up toa thuốc</span><span class="dsm">100đ/toa hợp lệ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c1d2">
+<div class="ba">📌 100đ/toa hợp lệ · Chụp ảnh → upload hệ thống</div>
+<div class="bg2"><div class="gnt">✅ Toa thuốc hợp lệ phải có đủ:</div>• Đầy đủ thông tin cá nhân người bệnh
+• Ghi rõ tên thuốc — hoạt chất, nồng độ, hàm lượng
+• Ghi rõ số lượng — liều dùng, đường dùng, thời điểm dùng
+• Gạch chéo phần còn trống
+• Còn trong thời hạn 5 ngày kể từ ngày kê
+VD: Toa kê 18/01 → hợp lệ đến 22/01 → từ 23/01 là không hợp lệ</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Chụp ảnh + đẩy lên hệ thống</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">In ra bản cứng</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Viết mã SO + kẹp bill</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Lưu vào túi zip lớn hoặc sổ</div><div class="sd">Khi đoàn kiểm tra → mang ra xuất trình</div></div></div>
+</div>
+<div class="bn"><div class="nt">📱 Đơn thuốc điện tử:</div>• Tra cứu: donthuocquocgia.vn
+• Bán hàng: WebRSA → Bán hàng → Đơn thuốc điện tử</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c1d3',this)"><span class="sic">🔬</span><span class="dsl">Tiếp đoàn Kiểm nghiệm</span><span class="dsm">TTKN · Lấy mẫu</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c1d3">
+<div class="ba">📌 Quy trình tiếp đoàn tương tự SYT/GPP · Khi đoàn lấy mẫu → thông báo ngay phòng GPP</div>
+<div class="steps">
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Ký Biên bản lấy mẫu tại shop</div><div class="sd">Thông báo ngay phòng GPP</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Gửi biên bản cho Sale ECOM</div><div class="sd">📧 sale@nhathuoclongchau.com.vn
+Kèm: mã hàng + SL lấy mẫu + thông tin VAT</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">ECOM tạo đơn → shop xác nhận</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Chờ Ủy nhiệm chi (UNC)</div><div class="sd">TTKN chuyển UNC → gửi về loop mail → KT gạch nợ</div></div></div>
+</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c1d4',this)"><span class="sic">🌡️</span><span class="dsl">Nhiệt ẩm kế</span><span class="dsm">GSP-6 · RC-4HC · Hiệu chuẩn 12T</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c1d4">
+<div class="bn"><div class="nt">📌 Vị trí:</div>Shop: Treo cố định khu vực mát, ưu tiên gần tủ bảo quản
+Tủ lạnh: Thân máy ngoài · Đầu dò vào trong tủ
+⚠️ KHÔNG đặt dưới máy lạnh · KHÔNG rút đầu dò trong quá trình sử dụng</div>
+<div class="ba">📌 Kiểm tra hàng ngày · Xuất dữ liệu 1T/lần · Hiệu chuẩn 12T/lần
+Báo HC ngay khi hư/sắp hết hạn: FLC.HanhChinh@fpt.com</div>
+<div class="tw"><table><thead><tr><th>Sự cố</th><th>Xử lý</th></tr></thead><tbody><tr><td>Vượt ngưỡng nhiệt độ/độ ẩm</td><td>Di chuyển hàng đến khu mát · điều chỉnh nhiệt độ → theo dõi</td></tr><tr><td>Pin yếu/hết (HN, MB1, MB2)</td><td>Gửi HC vùng thay pin · ghi rõ mã shop</td></tr><tr><td>Pin yếu/hết (MT, MĐông, HCM, MTây)</td><td>Tự mua pin + lấy HĐ hoàn chi phí KT</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚖️ Vi phạm → Phạt 500.000đ/lần</div></div>
+<div class="tw"><table><thead><tr><th>Khu vực</th><th>Phụ trách</th><th>SĐT</th></tr></thead><tbody><tr><td>Miền Bắc, Hà Nội</td><td>Phạm Minh Vượng</td><td>0336.222.894</td></tr><tr><td>HCM, MTây, MĐông</td><td>Châu Thiên An</td><td>0938.060.832</td></tr><tr><td>Miền Trung</td><td>Huỳnh Thị Bích Giang</td><td>0935.633.685</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p3c2',this)"><span class="chn" style="color:var(--p3);background:var(--p3d);border-color:var(--p3b)">CH.2</span><span class="cht2">Hành chính</span><span class="chc">5 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p3c2">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c2d5',this)"><span class="sic">🔥</span><span class="dsl">PCCC</span><span class="dsm">Hồ sơ 9 loại</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c2d5">
+<div class="ba">📌 Hồ sơ 9 loại · hạn không quá 1 năm · Định kỳ 1 năm/lần · <strong>Báo HC vùng ngay khi có đoàn</strong></div>
+<div class="stl">Danh sách hồ sơ</div>
+<div class="tw"><table><thead><tr><th>#</th><th>Tên hồ sơ</th></tr></thead><tbody>
+<tr><td>1</td><td>Giấy phép ĐKKD &amp; Giấy ủy quyền</td></tr>
+<tr><td>2</td><td>Hồ sơ quản lý theo dõi công tác PCCC &amp; CNCH</td></tr>
+<tr><td>3</td><td>Quyết định Phương án cứu nạn cứu hộ</td></tr>
+<tr><td>4</td><td>Sổ theo dõi phương tiện PCCC</td></tr>
+<tr><td>5</td><td>Phương án chữa cháy của cơ sở</td></tr>
+<tr><td>6</td><td>Biên bản tự kiểm tra an toàn PCCC &amp; CNCH</td></tr>
+<tr><td>7</td><td>Báo cáo kết quả kiểm tra an toàn PCCC</td></tr>
+<tr><td>8</td><td>Sổ theo dõi công tác tuyên truyền huấn luyện nghiệp vụ</td></tr>
+<tr><td>9</td><td>Các giấy chứng chỉ đào tạo PCCC</td></tr>
+</tbody></table></div>
+<div class="bn"><div class="nt">📋 Lưu ý hồ sơ:</div>• Giấy phép ĐKKD → inside → Tài liệu → Hành chính → ĐKKD
+• Giấy ủy quyền → Hành chính email cho HR làm giấy gửi về shop
+• Khi có đoàn → liên hệ <strong>Hành chính vùng</strong> ngay để được cung cấp hồ sơ và hướng dẫn</div>
+<div class="bg2"><div class="gnt">✅ Checklist 5 điểm:</div>Kho · Bảng nội quy · Bình chữa cháy · Bảng điện · Ngắt điện</div>
+<div class="stl">Lưu ý chứng chỉ PCCC</div>
+<div class="bn"><div class="nt">📌</div>• Toàn bộ nhân sự phải có chứng chỉ PCCC còn hiệu lực
+• Danh sách đội cứu hỏa phải khớp với nhân sự hiện tại
+• Chứng chỉ sắp hết hạn / nhân sự mới → liên hệ <strong>công an khu vực</strong> hỏi thông tin lớp học đào tạo → báo <strong>ASM</strong> về chi phí</div>
+<div class="stl">Lưu ý trang thiết bị PCCC tại shop</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Ngắt điện khu vực không sử dụng</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Vệ sinh bình PCCC</div><div class="sd">Hư hỏng → liên hệ Hành chính để cấp mới</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Vệ sinh bảng điện, hộp kỹ thuật điện</div><div class="sd">Tránh bụi bẩn/ẩm mốc gây chập cháy</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Kiểm tra Bảng tiêu lệnh, Nội quy PCCC</div><div class="sd">Kiểm tra đèn exit · lối thoát hiểm</div></div></div>
+<div class="step"><div class="sn2">5</div><div><div class="st3">Sắp xếp đồ đạc trong kho</div><div class="sd"><strong>Cách xa hệ thống điện tối thiểu 0.5m</strong></div></div></div>
+</div>
+<div class="stl">Bộ câu hỏi/trả lời khi tiếp đoàn PCCC</div>
+<div class="tw"><table><thead><tr><th>#</th><th>Câu hỏi</th><th>Gợi ý trả lời</th></tr></thead><tbody>
+<tr><td>1</td><td>Shop có lắp đặt hệ thống truyền tin báo cháy chưa?</td><td>Tháng 4/2026 ký hợp đồng với <strong>GEIC</strong> triển khai. Thiết bị: <strong>Bộ truyền tin báo cháy Liên Gia mới</strong>. Dự kiến hoàn tất trước <strong>01/07/2027</strong></td></tr>
+<tr><td>2</td><td>Cửa hàng có bao nhiêu người, đã tập huấn PCCC chưa?</td><td>Hoạt động 2 ca, mỗi ca 3-5 nhân sự. Nhân sự shop trả lời đúng tên nhân sự làm chính tại shop</td></tr>
+<tr><td>3</td><td>Có xây dựng lực lượng PCCC tại cơ sở không?</td><td>Đã có, thành lập đầy đủ theo hồ sơ quản lý, theo dõi công tác PCCC</td></tr>
+<tr><td>4</td><td>Có tự kiểm tra về an toàn PCCC không?</td><td>Định kỳ <strong>6 tháng/1 lần</strong>, lập biên bản sau mỗi lần kiểm tra</td></tr>
+<tr><td>5</td><td>Cửa hàng có lối thoát nạn khẩn cấp không?</td><td>FRT thuê lại nhà dân, thiết kế ban đầu không có, không được phép thay đổi</td></tr>
+<tr><td>6</td><td>Tối shop có người ngủ lại không?</td><td>Không. Nhân sự bảo vệ là công ty dịch vụ trực đêm có đăng ký tạm trú</td></tr>
+<tr><td>7</td><td>Danh sách đội cứu hỏa không khớp nhân sự hiện tại?</td><td>Do shop mới luân chuyển nhân sự. Sắp tới sẽ có lớp học gửi thông báo để shop đăng ký đi học</td></tr>
+</tbody></table></div>
+<div class="stl">Liên hệ hỗ trợ khi tiếp đoàn PCCC</div>
+<div class="tw"><table><thead><tr><th>Khu vực</th><th>Người phụ trách</th><th>SĐT</th></tr></thead><tbody>
+<tr><td>HN / Miền Bắc / Miền Trung</td><td>Bà Lại Văn Hằng — HangLV@fpt.com</td><td>0981.741.991</td></tr>
+<tr><td>HCM / Miền Tây / Miền Đông</td><td>Bà Trang — TrangeHNT@fpt.com</td><td>0909.981.005</td></tr>
+</tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c2d6',this)"><span class="sic">📦</span><span class="dsl">Văn phòng phẩm</span><span class="dsm">Ngày 1-3 hàng tháng</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c2d6">
+<div class="ba">📌 Ngày 1-3 hàng tháng → mRSA kiểm tra/điều chỉnh → gửi ASM duyệt trước ngày 4</div>
+<div class="tw"><table><thead><tr><th>Loại</th><th>Chu kỳ cấp</th></tr></thead><tbody><tr><td>Túi nilon + Túi zip chia liều</td><td>3 tháng/lần</td></tr><tr><td>Tem HDSD + VPP khác</td><td>1 tháng/lần</td></tr><tr><td>Bao nilong TTMT 35x55 (mã 00049182)</td><td>Tạo yêu cầu riêng mRSA</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c2d7',this)"><span class="sic">⚡</span><span class="dsl">Tiền điện</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c2d7">
+<div class="bn"><div class="nt">📌 Liên hệ:</div>Group Zalo: <strong>"Hành Chính - SM Miền Bắc 2"</strong></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c2d8',this)"><span class="sic">🐀</span><span class="dsl">Diệt chuột - mối mọt</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c2d8">
+<div class="ba">📌 Gửi mail yêu cầu xử lý
+📧 To: Traht10@fpt.com
+📧 CC: ASM khu vực + Hanglv@fpt.com
+📌 Tiêu đề: Mã Shop_Xử lý diệt chuột</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c2d9',this)"><span class="sic">🧊</span><span class="dsl">Bảo hành tủ lạnh Aqua</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c2d9">
+<div class="bw"><div class="wt">📌 Đầu tiên liên hệ bộ phận Hành chính trước</div></div>
+<div class="ba">📞 Hotline bảo hành Aqua: 1800 585832</div>
+<div class="stl">Quy trình xử lý</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Shop gọi Trung tâm Bảo hành Aqua</div><div class="sd">Kiểm tra máy</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Kỹ thuật hãng đến kiểm tra</div><div class="sd">Hết bảo hành → báo hãng cứ sửa → xuất HĐ GTGT</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Shop thanh toán → có HĐ GTGT</div><div class="sd">SM lập Đề nghị thanh toán trên Epayment → nhắn KT phụ trách vùng check</div></div></div>
+</div>
+<div class="bn"><div class="nt">📌 Kế toán phụ trách:</div>Phan Trung Kiệt — 0362039472 — ketpt20@fpt.com</div>
+<div class="stl">Thông tin xuất hóa đơn</div>
+<div class="bn"><div class="nt">📋</div>Công ty Cổ phần Dược phẩm FPT Long Châu
+MST: 0315275368
+Địa chỉ: 379-381 Hai Bà Trưng, P. Xuân Hòa, TP. Hồ Chí Minh</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p3c3',this)"><span class="chn" style="color:var(--p3);background:var(--p3d);border-color:var(--p3b)">CH.3</span><span class="cht2">Tổng đài 87333</span><span class="chc">3 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p3c3">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c3d10',this)"><span class="sic">🏗️</span><span class="dsl">Cơ sở vật chất</span><span class="dsm">Ticket SSC</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c3d10">
+<div class="ba">📌 Áp dụng: Bóng đèn · Điều hòa · Cửa cuốn · Khóa · Trần/tường · Kệ...</div>
+<div class="bn"><div class="nt">📌 Các vấn đề CSVC MB1 & MB2:</div>Group Zalo: <strong>"CSVC - LONG CHÂU MB"</strong></div>
+<a href="https://ssc.fptshop.com.vn/secure/SSC01CreateTicket.jspa?processId=318&catalogId=1&issueKeys=" class="lnk" target="_blank">🔗 Tạo ticket CSVC</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c3d11',this)"><span class="sic">💻</span><span class="dsl">IT / Máy in / Camera</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c3d11">
+<div class="tw"><table><thead><tr><th>Vấn đề</th><th>Xử lý</th></tr></thead><tbody><tr><td>Camera / Máy tính / Mạng nội bộ hỏng</td><td>Tạo ticket 87333</td></tr><tr><td>Mở IP bán hàng (không có mạng nội bộ)</td><td>Tạo ticket 87333 → add IP 3G</td></tr><tr><td>Cài đặt máy in</td><td>Liên hệ OA SSC Zalo → gửi Ultraview</td></tr><tr><td>Máy in hỏng — thay trống mực, đổ mực</td><td>Dùng Thu/Chi khác trên RSA để thanh toán</td></tr><tr><td>Máy in hỏng — linh kiện khác</td><td>Tạo ticket 87333 · Báo HC vùng confirm trước</td></tr></tbody></table></div>
+<a href="https://ssc.fptshop.com.vn/secure/SSCAllServices.jspa?id=0&id_parent=118&menu=1" class="lnk" target="_blank">🔗 Tổng đài 87333 — Hỗ trợ kỹ thuật IT</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c3d12',this)"><span class="sic">⛈️</span><span class="dsl">Phòng tránh rủi ro điện/mưa bão</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c3d12">
+<div class="bg2"><div class="gnt">✅ Trước khi mưa giông:</div>• Tắt CB đèn LED pha bảng hiệu
+• Thu bạt cuốn, mái hiên di động → buộc gọn</div>
+<div class="bw"><div class="wt">⚠️ Trong lúc mưa bão — Báo ngay CSVC nếu:</div><div class="bw-body">Đèn chớp mạnh bất thường · Có mùi khét · Mất điện cục bộ bảng hiệu</div></div>
+<div class="ba">📌 Sau khi ổn định: Bật lại CB đèn pha bảng hiệu → kiểm tra vận hành</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p3c4',this)"><span class="chn" style="color:var(--p3);background:var(--p3d);border-color:var(--p3b)">CH.4</span><span class="cht2">Sơ đồ chức năng & Các Group</span><span class="chc">3 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p3c4">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c4d13',this)"><span class="sic">🔧</span><span class="dsl">Vận hành & Hàng hóa</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c4d13">
+<div class="tw"><table><thead><tr><th>Phòng ban</th><th>Chức năng</th><th>Email</th></tr></thead><tbody><tr><td>Phòng QA</td><td>Xử lý lệnh LCNB, hàng cận date, trễ hạn LCNB</td><td>flc.qa@fpt.com</td></tr><tr><td>Phòng KSNH</td><td>Tạo/hủy lệnh LCNB, rút hàng, hàng hư hỏng do NCC giao</td><td>flc.ksnh@fpt.com</td></tr><tr><td>Kho tổng</td><td>Xử lý lệnh LCNB (Kho to Shop)</td><td>flc.khohcm@fpt.com
+flc.khohni@fpt.com</td></tr><tr><td>Phòng KSNB</td><td>Xử lý kiểm kê, LCNB kho thanh lý</td><td>flc.ksnb@fpt.com</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c4d14',this)"><span class="sic">🛠️</span><span class="dsl">Hỗ trợ & Quản lý</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c4d14">
+<div class="tw"><table><thead><tr><th>Phòng ban</th><th>Chức năng</th><th>Liên hệ</th></tr></thead><tbody><tr><td>Phòng SSC</td><td>Tiếp nhận các vấn đề từ khối Shop</td><td>Tổng đài 87333 / OA Zalo</td></tr><tr><td>Phòng GPP</td><td>Xử lý thủ tục mở nhà thuốc, thẩm định</td><td>flc.gpp.mn@fpt.com
+flc.gpp.mtr@fpt.com
+flc.gppmb@fpt.com</td></tr><tr><td>Phòng Kế toán</td><td>Tiền mặt, thẻ, chuyển khoản</td><td>flc.ketoan@fpt.com
+flc.ketoancongno@fpt.com</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p3c4d15',this)"><span class="sic">💬</span><span class="dsl">Các Group cần tham gia</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p3c4d15">
+<div class="tw"><table><thead><tr><th>Tên Group</th><th>Mục đích</th></tr></thead><tbody><tr><td>FLC Giấy Tờ Miền Bắc 2</td><td>Hỗ trợ giấy tờ khi tiếp đoàn · GHIM ĐẦU NHÓM</td></tr><tr><td>GR. Gia hạn Nhiệt Kế</td><td>Theo dõi & gia hạn hiệu chuẩn nhiệt ẩm kế</td></tr><tr><td>[KSNB–ASM–SM] Theo dõi nhiệt độ nhà thuốc MB2</td><td>Theo dõi nhiệt độ shop hàng ngày</td></tr><tr><td>Hành Chính - SM Miền Bắc 2</td><td>Tiền điện · Hành chính vùng</td></tr><tr><td>PCCC Miền Bắc</td><td>Hỗ trợ hồ sơ PCCC · Lịch kiểm tra</td></tr><tr><td>Nhập hàng tổng</td><td>Xin chứng từ hóa đơn nhập hàng từ NCC</td></tr><tr><td>CSVC - LONG CHÂU MB</td><td>Các vấn đề cơ sở vật chất MB1 &amp; MB2</td></tr><tr><td>BIÊN BẢN KIỂM KÊ QUỸ KV.MB2 - Các TB Quan trọng</td><td>Gửi BBKK quỹ hàng quý</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pg" id="p4">
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p4c1',this)"><span class="chn" style="color:var(--p4);background:var(--p4d);border-color:var(--p4b)">CH.1</span><span class="cht2">Mô tả công việc</span><span class="chc">5 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p4c1">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c1d1',this)"><span class="sic">📊</span><span class="dsl">Phân bổ thời gian SM</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c1d1">
+<div class="tw"><table><thead><tr><th>Trách nhiệm</th><th>%</th></tr></thead><tbody><tr><td>Hoạt động kinh doanh & bán hàng</td><td>50%</td></tr><tr><td>Phân bổ kế hoạch kinh doanh</td><td>15%</td></tr><tr><td>Quản lý nhân sự</td><td>10%</td></tr><tr><td>Quản lý hàng hóa & CSVC</td><td>10%</td></tr><tr><td>Công tác thị trường</td><td>10%</td></tr><tr><td>Báo cáo & công việc khác</td><td>5%</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c1d2',this)"><span class="sic">👑</span><span class="dsl">Kỹ năng lãnh đạo & quản lý</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c1d2">
+<div class="tw"><table><thead><tr><th>Kỹ năng</th><th>Mô tả</th></tr></thead><tbody><tr><td>Lập kế hoạch & điều phối</td><td>Phân bổ chỉ tiêu doanh số · Sắp ca · Phân công công việc hợp lý</td></tr><tr><td>Xây dựng & phát triển đội nhóm</td><td>Đào tạo NV · Tạo động lực · Giữ chân nhân sự tốt</td></tr><tr><td>Quản lý sự thay đổi</td><td>Linh hoạt thích ứng với thay đổi chính sách, quy trình</td></tr><tr><td>Đàm phán & giải quyết mâu thuẫn</td><td>Xử lý xung đột nội bộ · Với KH · Hòa giải trên cơ sở tôn trọng</td></tr><tr><td>Ra quyết định</td><td>Tự chủ vận hành hàng ngày · Đề xuất lên cấp trên khi vượt thẩm quyền</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c1d3',this)"><span class="sic">🛒</span><span class="dsl">Kỹ năng chuyên môn</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c1d3">
+<div class="tw"><table><thead><tr><th>Kỹ năng</th><th>Mô tả</th></tr></thead><tbody><tr><td>Kỹ năng bán hàng</td><td>Tư vấn tận tâm · Quy trình Dạ Có - Minh Bạch · Up-sell/Cross-sell</td></tr><tr><td>Định hướng khách hàng</td><td>Xử lý khiếu nại kịp thời · Tạo trải nghiệm KH tích cực</td></tr><tr><td>Xây dựng quan hệ</td><td>KH thân thiết · Đối tác KD · Cơ quan địa phương</td></tr><tr><td>Giải quyết khiếu nại</td><td>Trực tiếp xử lý trong thẩm quyền · Chuyển CSKH khi vượt thẩm quyền</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c1d4',this)"><span class="sic">⏰</span><span class="dsl">Kỹ năng nghiệp vụ bổ trợ</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c1d4">
+<div class="tw"><table><thead><tr><th>Kỹ năng</th><th>Mô tả</th></tr></thead><tbody><tr><td>Kỷ luật cá nhân</td><td>Tinh thần trách nhiệm cao · Chịu được áp lực · Đúng giờ</td></tr><tr><td>Giao tiếp</td><td>Thân thiện · Cởi mở · Lắng nghe tích cực · Phản hồi rõ ràng</td></tr><tr><td>Chính trực & đáng tin cậy</td><td>Trung thực · Minh bạch · Giữ lời hứa</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c1d5',this)"><span class="sic">🌟</span><span class="dsl">Phẩm chất cốt lõi</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c1d5">
+<div class="bg2"><div class="gnt">✅ Phẩm chất SM cần có:</div>Đam mê thành công · Linh hoạt · Tự tin · Quyết đoán · Tinh thần trách nhiệm cao · Thân thiện · Hài hòa</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p4c2',this)"><span class="chn" style="color:var(--p4);background:var(--p4d);border-color:var(--p4b)">CH.2</span><span class="cht2">Tips thực chiến</span><span class="chc">5 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p4c2">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c2d6',this)"><span class="sic">📦</span><span class="dsl">Kiểm soát hàng hóa</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c2d6">
+<div class="stl">Sắp xếp hàng hóa</div>
+<div class="bn"><div class="nt">📌</div>Đầu mỗi ca → xếp đầy đủ hàng lên tủ/kệ
+Lý do: kệ đầy → dễ nhận biết ngay SP nào đang thiếu</div>
+<div class="stl">Kiểm kê hàng ngày</div>
+<div class="bn"><div class="nt">📌</div>Mỗi ngày kiểm 20 mã ngẫu nhiên → chụp ảnh gửi lên nhóm shop
+Phát hiện thiếu → tra lịch sử giao dịch RSA từ ngày kiểm kê gần nhất</div>
+<div class="stl">Đơn ECOM</div>
+<div class="bn"><div class="nt">📌</div>100% bill + hàng ECOM phải chụp ảnh gửi lên nhóm riêng của shop trước khi giao
+Khi mang đơn ra khỏi shop → bắt buộc <strong>kiểm chéo</strong> (NV soạn ≠ NV kiểm)</div>
+<div class="stl">Phát hiện chênh lệch</div>
+<div class="bn"><div class="nt">📌</div>Xem lịch sử giao dịch RSA trước
+Xem camera nếu không giải thích được</div>
+<div class="ba">💡 Vấn đề hàng hóa phát hiện càng sớm → xử lý càng dễ · thiệt hại càng ít</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c2d7',this)"><span class="sic">📋</span><span class="dsl">Thiết lập nội quy shop</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c2d7">
+<div class="bn"><div class="nt">❓ Tại sao cần nội quy shop?</div>SM thay đổi → NV vẫn làm đúng vì có chuẩn rõ ràng
+NV mới vào → có chuẩn để follow, không cần hỏi từng việc
+Xử lý vi phạm → có căn cứ, tránh cảm tính</div>
+<div class="tw"><table><thead><tr><th>Mục</th><th>Nội dung</th></tr></thead><tbody><tr><td>Ca kíp</td><td>Có mặt trước 15 phút · Xin nghỉ báo trước 2 ngày (trừ đột xuất) · Ca làm việc luân phiên theo tuần</td></tr><tr><td>Tác phong</td><td>Đồng phục + thẻ tên · Không dùng điện thoại cá nhân · Không ngồi/ăn uống khi có KH</td></tr><tr><td>Vận hành</td><td>Mở cửa kiểm tra nhiệt độ + sắp xếp hàng · Đóng cửa đối chiếu tồn + bàn giao tiền · Lau cửa kính sạch sẽ</td></tr><tr><td>Giao tiếp nội bộ</td><td>Họp ca 5 phút đầu ca · Phải có phản hồi/tương tác khi nhận thông tin · Báo sự cố ngay không để qua ca</td></tr><tr><td>Xử lý vi phạm</td><td>Lần 1: nhắc nhở · Lần 2: ghi nhận + họp riêng · Lần 3: báo ASM</td></tr></tbody></table></div>
+<div class="ba">💡 Nội quy phải phổ biến khi NV mới vào · nhắc lại định kỳ · áp dụng nhất quán</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c2d8',this)"><span class="sic">🎓</span><span class="dsl">Đào tạo nhân viên</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c2d8">
+<div class="wip">🚧 Đang cập nhật...</div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c2d9',this)"><span class="sic">📈</span><span class="dsl">Đọc chỉ số cơ bản</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c2d9">
+<div class="ba">📌 Doanh số = TB bill × Lượt khách
+Doanh số là kết quả — muốn cải thiện phải tác động vào 2 yếu tố. Các chỉ số đều có sự liên quan đến nhau.</div>
+<div class="bn"><div class="nt">💡 Tại sao phải biết cách đọc chỉ số?</div>Chỉ số là ngôn ngữ của shop — biết đọc mới biết vấn đề nằm ở chỗ nào
+Đọc đúng chỉ số → ra quyết định chính xác thay vì làm theo cảm tính
+SM giỏi không chỉ chạy doanh số — mà biết kéo đúng đòn bẩy vào đúng lúc</div>
+<div class="stl">1. Lượt khách</div>
+<div class="tw"><table><thead><tr><th>Chỉ số</th><th>Cách cải thiện</th></tr></thead><tbody><tr><td>Thu hút khách mới</td><td>Làm thị trường · KH cũ giới thiệu thêm KH mới</td></tr><tr><td>Tỷ lệ KH quay lại</td><td>Chăm sóc KH tốt · trải nghiệm tích cực · Đầy đủ hàng hóa · chuyên môn tốt · giá cả cạnh tranh</td></tr><tr><td>Tỷ lệ thành công (lượt vào → đơn mua)</td><td>Đầy đủ hàng hóa · Đúng quy trình Dạ Có · thế thuốc hợp lý · Giá cả cạnh tranh (hàng nội/ngoại)</td></tr></tbody></table></div>
+<div class="stl">2. TB bill</div>
+<div class="bn"><div class="nt">📌</div>Tư vấn thêm SP kèm (up-sell/cross-sell)
+Nâng cao năng lực tư vấn (kỹ năng bán hàng, xử lý từ chối)
+Nâng cao năng lực chuyên môn: hiểu bệnh · tư vấn đúng · tạo niềm tin lâu dài</div>
+<div class="stl">3. Tỷ lệ thuốc</div>
+<div class="bn"><div class="nt">📌</div>Công thức: Doanh số thuốc (Rx + OTC) / Tổng doanh số
+✅ ≥ 55% → đạt yêu cầu
+❌ &lt; 55% → cần xem lại định hướng tư vấn và cách bán hàng</div>
+<div class="stl">5. Doanh số cắt liều</div>
+<div class="bn"><div class="nt">📌</div>Thể hiện tính chuyên môn của nhà thuốc · Đảm bảo điều trị được các bệnh thông thường
+<strong>Yêu cầu: ≥ 1,5% tỷ trọng doanh số</strong>
+VD: Doanh số shop 500 triệu → Doanh số cắt liều cần đạt tối thiểu <strong>7,5 triệu</strong></div>
+<div class="tw"><table><thead><tr><th>Triệu chứng</th><th>Nguyên nhân cần xem</th></tr></thead><tbody><tr><td>Doanh số thấp</td><td>Lượt khách hay TB bill đang thấp?</td></tr><tr><td>Lượt khách thấp</td><td>Thu hút + giữ chân KH</td></tr><tr><td>TB bill thấp</td><td>Kỹ năng tư vấn của NV</td></tr><tr><td>Tỷ lệ thuốc &lt; 55%</td><td>Định hướng tư vấn</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c2d10',this)"><span class="sic">🗂️</span><span class="dsl">Phân chia công việc</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c2d10">
+<div class="stl">Sổ đặt hàng cho khách</div>
+<div class="bn"><div class="nt">📌</div>Nhận đặt hàng → ghi đầy đủ thông tin KH vào sổ · ký tên nhận
+Khách của ai → người đó chủ động chăm sóc · không đùn đẩy
+Chủ động kiểm tra hàng về chưa · tự liên hệ đặt hàng/xin LCNB
+Có hàng → chủ động báo KH ngay
+Không có hàng → chủ động báo KH · không để KH hỏi trước</div>
+<div class="wip">🚧 Đang cập nhật...</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ch">
+<div class="ch-hdr" onclick="tog('body-p4c3',this)"><span class="chn" style="color:var(--p4);background:var(--p4d);border-color:var(--p4b)">CH.3</span><span class="cht2">Checklist công việc</span><span class="chc">5 mục</span><span class="cv">▼</span></div>
+<div class="ch-body" id="body-p4c3">
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c3d11',this)"><span class="sic">📅</span><span class="dsl">Hàng ngày</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c3d11">
+<div class="tw"><table><thead><tr><th>Công việc</th><th>Ghi chú</th></tr></thead><tbody><tr><td>Kiểm tra nhiệt độ &amp; độ ẩm shop + tủ lạnh</td><td>Đầu ca</td></tr><tr><td>Xếp đầy đủ hàng lên kệ</td><td>Đầu ca · kệ đầy → dễ nhận biết hàng thiếu</td></tr><tr><td>Kiểm 20 mã ngẫu nhiên · chụp ảnh gửi nhóm</td><td>Tra LSGD nếu phát hiện thiếu</td></tr><tr><td>Chụp toa thuốc · lưu lại</td><td>Up lên hệ thống + in + kẹp bill</td></tr><tr><td>Kiểm tra tiến độ công việc giao cho nhân viên</td><td></td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c3d12',this)"><span class="sic">📅</span><span class="dsl">Hàng tuần</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c3d12">
+<div class="tw"><table><thead><tr><th>Công việc</th><th>Ghi chú</th></tr></thead><tbody><tr><td>Lau cửa kính · vệ sinh kệ hàng</td><td></td></tr><tr><td>Làm file hàng hết</td><td>Rà soát SP sắp hết để xin hàng kịp thời</td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c3d13',this)"><span class="sic">📅</span><span class="dsl">Hàng tháng</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c3d13">
+<div class="tw"><table><thead><tr><th>Công việc</th><th>Thời hạn</th></tr></thead><tbody><tr><td>Văn phòng phẩm</td><td>Ngày 1-3</td></tr><tr><td>Checklist kiểm tra nhà thuốc (ASM rà soát)</td><td>Đầu tháng</td></tr><tr><td>Kiểm kê cận date</td><td>Ngày 26-28</td></tr><tr><td><strong>Làm sổ sách:</strong></td><td></td></tr><tr><td>&nbsp;&nbsp;• Sổ nhiệt độ - độ ẩm (xuất dữ liệu nhiệt ẩm kế)</td><td>📎 Tài liệu hướng dẫn (đang cập nhật)</td></tr><tr><td>&nbsp;&nbsp;• Sổ vệ sinh nhà thuốc</td><td></td></tr><tr><td>&nbsp;&nbsp;• Kiểm soát đặc biệt 001/003-007</td><td></td></tr><tr><td>&nbsp;&nbsp;• Sổ khiếu nại KH</td><td></td></tr><tr><td>&nbsp;&nbsp;• Sổ đơn thuốc không hợp lệ</td><td></td></tr><tr><td>&nbsp;&nbsp;• Sổ tác dụng phụ</td><td></td></tr><tr><td>&nbsp;&nbsp;• Sổ nhập thuốc</td><td></td></tr></tbody></table></div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc3cnQmH4hFfcWv2Om9OF_GiJdt7tW4p8KwlKnnbEqMs8dGvQ/formResponse" class="lnk" target="_blank">🔗 Link Checklist kiểm tra nhà thuốc</a>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c3d14',this)"><span class="sic">📅</span><span class="dsl">Hàng quý</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c3d14">
+<div class="tw"><table><thead><tr><th>Công việc</th><th>Ghi chú</th></tr></thead><tbody><tr><td>Kiểm kê All Shop</td><td>3 tháng/lần</td></tr><tr><td>Biên bản kiểm kê quỹ</td><td>Trước 12h ngày 15 đầu quý tiếp theo</td></tr><tr><td>Sổ kiểm soát thuốc định kỳ 002</td><td></td></tr></tbody></table></div>
+</div>
+</div>
+<div class="dsec">
+<div class="dsh" onclick="tog('body-p4c3d15',this)"><span class="sic">📅</span><span class="dsl">Hàng năm</span><span class="cv">▼</span></div>
+<div class="dsec-body" id="body-p4c3d15">
+<div class="tw"><table><thead><tr><th>Công việc</th><th>Ghi chú</th></tr></thead><tbody><tr><td>Gia hạn hiệu chuẩn nhiệt ẩm kế</td><td>Gửi trước hết hạn 1 tháng · FLC.HanhChinh@fpt.com</td></tr><tr><td>Hồ sơ PCCC (7 loại)</td><td>Định kỳ 1 năm/lần · báo trước 3-7 ngày</td></tr><tr><td>Nộp sổ 007 cho SYT</td><td>01-15 tháng 1 &amp; tháng 7</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">FPT LONG CHÂU · SỔ TAY SM · MIỀN BẮC 2 · 2026</div>
+</div>
+<script>
+// ── TAB SWITCHING ──────────────────────────────────────────────
+function switchTab(n){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active')});
+  var tab=document.querySelector('.tab[data-tab="'+n+'"]');
+  if(tab)tab.classList.add('active');
+  var pg=document.getElementById('p'+n);
+  if(pg)pg.classList.add('active');
+}
+
+// ── ACCORDION TOGGLE ──────────────────────────────────────────
+function tog(bodyId,hdr){
+  var body=document.getElementById(bodyId);
+  if(!body)return;
+  var isOpen=body.style.display==='block';
+  body.style.display=isOpen?'none':'block';
+  hdr.classList.toggle('open',!isOpen);
+}
+
+// ── SEARCH (lazy index build) ──────────────────────────────────
+var idx=null;
+var PL={'1':'🔧 Vận hành','2':'📦 Kho & KK','3':'🏛️ Quy định','4':'🎯 Kỹ năng'};
+
+function buildIdx(){
+  if(idx)return;
+  idx=[];
+  document.querySelectorAll('.sh,.dsh').forEach(function(hdr){
+    var bodyId=hdr.getAttribute('onclick').match(/'([^']+)'/)[1];
+    var body=document.getElementById(bodyId);
+    var pg=hdr.closest('.pg');
+    var ch=hdr.closest('.ch');
+    var grp=hdr.closest('.grp');
+    var pNum=pg?pg.id.replace('p',''):'?';
+    var chHdr=ch?ch.querySelector('.ch-hdr'):null;
+    var chTitle=chHdr?(chHdr.querySelector('.cht2')||{textContent:''}).textContent:'';
+    var grpTitle=grp?(grp.querySelector('.gt')||{textContent:''}).textContent:'';
+    var label=(hdr.querySelector('.sl,.dsl')||{textContent:''}).textContent;
+    var txt=body?body.textContent:'';
+    idx.push({pNum:pNum,chTitle:chTitle,grpTitle:grpTitle,label:label,txt:txt,
+              hdr:hdr,bodyId:bodyId,
+              chHdr:chHdr,grpHdr:grp?grp.querySelector('.gh'):null});
+  });
+}
+
+function doSearch(q){
+  q=(q||'').toLowerCase().trim();
+  var out=document.getElementById('sout');
+  var emp=document.getElementById('empty');
+  out.innerHTML='';
+  if(!q){out.style.display='none';emp.style.display='none';return;}
+  buildIdx();
+  var res=idx.filter(function(i){return i.label.toLowerCase().indexOf(q)>=0||i.txt.toLowerCase().indexOf(q)>=0});
+  if(!res.length){out.style.display='none';emp.style.display='block';return;}
+  emp.style.display='none';out.style.display='flex';
+  res.forEach(function(i){
+    var d=document.createElement('div');
+    d.style.cssText='background:#fff;border:1.5px solid #D4C4B0;border-radius:7px;padding:10px 12px;cursor:pointer;margin-bottom:6px';
+    var path=PL[i.pNum]||'';
+    if(i.chTitle)path+=' › '+i.chTitle;
+    if(i.grpTitle)path+=' › '+i.grpTitle;
+    d.innerHTML='<div style="font-family:monospace;font-size:10px;color:#8B6F5C;margin-bottom:2px">'+path+'</div><div style="font-size:12px;font-weight:600;color:#2C1810">'+hl(i.label,q)+'</div>';
+    d.onclick=function(){
+      switchTab(parseInt(i.pNum)||1);
+      // open ancestors
+      if(i.chHdr&&!i.chHdr.classList.contains('open')){
+        var cb=i.chHdr.closest('.ch').querySelector('.ch-body');
+        if(cb){cb.style.display='block';i.chHdr.classList.add('open');}
+      }
+      if(i.grpHdr&&!i.grpHdr.classList.contains('open')){
+        var gb=i.grpHdr.closest('.grp').querySelector('.grp-body');
+        if(gb){gb.style.display='block';i.grpHdr.classList.add('open');}
+      }
+      var body=document.getElementById(i.bodyId);
+      if(body){body.style.display='block';i.hdr.classList.add('open');}
+      document.getElementById('searchInput').value='';
+      out.style.display='none';out.innerHTML='';emp.style.display='none';
+      setTimeout(function(){i.hdr.scrollIntoView({behavior:'smooth',block:'start'})},200);
+    };
+    out.appendChild(d);
+  });
+}
+
+function hl(t,q){
+  var re=new RegExp('('+q.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+')','gi');
+  return t.replace(re,'<mark style="background:#FFF176;color:#4E342E;border-radius:3px;padding:0 2px">$1</mark>');
+}
+
+// init: show first tab
+switchTab(1);
+</script>
+</body></html>
