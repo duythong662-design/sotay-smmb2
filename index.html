@@ -15,9 +15,9 @@
   --gn:#2E7D32;--yw:#F57F17;--rd:#C62828;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:13px;line-height:1.5}
-#app{max-width:520px;margin:0 auto;height:100vh;overflow-y:scroll;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);max-width:520px;margin:0 auto;font-size:13px;line-height:1.5}
+#app{width:100%}
 .hdr{position:sticky;top:0;z-index:100;background:#F5F0E8F5;border-bottom:2px solid var(--bd);padding:12px 16px}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .logo{display:flex;align-items:center;gap:8px}
@@ -1227,5 +1227,28 @@ function hl(t,q){
 
 // init: show first tab
 switchTab(1);
+
+// ── AUTO-RESIZE cho Google Sites iframe ───────────────────────
+// Google Sites lắng nghe message này để tự động điều chỉnh chiều cao iframe
+function notifyHeight(){
+  var h=document.getElementById('app').scrollHeight;
+  window.parent.postMessage({type:'setHeight',value:h},'*');
+  // Fallback cho một số phiên bản Google Sites
+  window.parent.postMessage(JSON.stringify({type:'setHeight',value:h}),'*');
+}
+// Gọi ngay khi load
+window.addEventListener('load',notifyHeight);
+// Gọi lại mỗi khi mở/đóng accordion (nội dung thay đổi chiều cao)
+var _origTog=tog;
+tog=function(bodyId,hdr){
+  _origTog(bodyId,hdr);
+  setTimeout(notifyHeight,250);
+};
+// Gọi lại mỗi khi chuyển tab
+var _origSwitch=switchTab;
+switchTab=function(n){
+  _origSwitch(n);
+  setTimeout(notifyHeight,100);
+};
 </script>
 </body></html>
