@@ -6,8 +6,8 @@
 <title>Sổ Tay SM · FPT Long Châu MB2</title>
 <style>
 :root{
-  --bg:#F5F0E8;--sf:#FFFFFF;--sf2:#F0EBE0;--bd:#D4C4B0;
-  --tx:#2C1810;--tm:#8B6F5C;--td:#B8A090;
+  --bg:#F0F4F8;--sf:#FFFFFF;--sf2:#E8EEF4;--bd:#C5D3E0;
+  --tx:#1A2B3C;--tm:#4A6080;--td:#B8A090;
   --p1:#1565C0;--p1d:#E3F0FF;--p1b:#90BBF0;
   --p2:#2E7D32;--p2d:#E8F5E9;--p2b:#90C893;
   --p3:#E65100;--p3d:#FFF3E0;--p3b:#FFAB70;
@@ -21,7 +21,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
   font-size:13px;line-height:1.5;min-height:100%}
 
 /* HEADER */
-.hdr{position:sticky;top:0;z-index:100;background:#F5F0E8F5;
+.hdr{position:sticky;top:0;z-index:100;background:#F0F4F8F5;
   border-bottom:2px solid var(--bd);padding:10px 16px}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .logo{display:flex;align-items:center;gap:8px}
@@ -42,10 +42,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .tab{flex-shrink:0;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:700;
   cursor:pointer;border:1.5px solid var(--bd);background:var(--sf);color:var(--tm);
   font-family:monospace;white-space:nowrap;-webkit-tap-highlight-color:rgba(0,0,0,.05)}
-.tab.act-1{background:var(--p1d);border-color:var(--p1);color:var(--p1)}
-.tab.act-2{background:var(--p2d);border-color:var(--p2);color:var(--p2)}
-.tab.act-3{background:var(--p3d);border-color:var(--p3);color:var(--p3)}
-.tab.act-4{background:var(--p4d);border-color:var(--p4);color:var(--p4)}
+.tab.act-1{background:var(--p1);border-color:var(--p1);color:#fff}
+.tab.act-2{background:var(--p2);border-color:var(--p2);color:#fff}
+.tab.act-3{background:var(--p3);border-color:var(--p3);color:#fff}
+.tab.act-4{background:var(--p4);border-color:var(--p4);color:#fff}
 
 /* MAIN */
 #app{padding:12px 16px 400px}
@@ -61,8 +61,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .chn{font-family:monospace;font-size:10px;font-weight:700;padding:2px 8px;
   border-radius:20px;flex-shrink:0;border-width:1.5px;border-style:solid}
 .cht2{font-size:13px;font-weight:700;flex:1;color:var(--tx)}
-.chc{font-family:monospace;font-size:10px;color:var(--tm);flex-shrink:0}
-.cv{font-size:10px;color:var(--tm);transition:transform .15s;flex-shrink:0}
+.chc{font-family:monospace;font-size:11px;color:#3E2723;font-weight:600;flex-shrink:0}
+.cv{font-size:10px;color:#4A6080;flex-shrink:0}
 .ch-hdr.on .cv{transform:rotate(180deg)}
 .ch-body{display:none;padding:8px 8px 24px;background:var(--bg)}
 .ch-body.on{display:block}
@@ -90,7 +90,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .grp-hdr.on{border-bottom:1.5px solid var(--bd)}
 .gi{font-size:14px;flex-shrink:0}
 .gt{font-size:12px;font-weight:700;flex:1}
-.gc{font-family:monospace;font-size:10px;color:var(--tm);flex-shrink:0}
+.gc{font-family:monospace;font-size:11px;color:#3E2723;font-weight:600;flex-shrink:0}
 .grp-body{display:none;padding:8px 8px 16px;background:var(--bg)}
 .grp-body.on{display:block}
 
@@ -131,7 +131,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .dsec-hdr.on{background:var(--sf2);border-bottom:1.5px solid var(--bd)}
 .dsec-hdr.on .cv{transform:rotate(180deg)}
 .dsl{font-size:12px;font-weight:700;flex:1;color:var(--tx)}
-.dsm{font-size:10px;color:var(--tm);font-family:monospace;flex-shrink:0}
+.dsm{font-size:11px;color:#3E2723;font-family:monospace;font-weight:600;flex-shrink:0}
 .dsec-body{display:none;padding:12px 14px 16px;background:var(--sf)}
 .dsec-body.on{display:block}
 
@@ -151,8 +151,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
   border-radius:6px;padding:9px 11px;font-size:12px;color:#1B5E20;line-height:1.6;
   margin-bottom:10px;white-space:pre-line}
 .bg2 .gnt{font-weight:700;margin-bottom:3px}
-.stl{font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;
-  letter-spacing:.07em;margin-bottom:6px;font-family:monospace}
+.stl{font-size:11px;font-weight:700;color:#3E2723;text-transform:uppercase;letter-spacing:.06em;margin:12px 0 8px;font-family:monospace;padding:4px 8px;background:#DDEEFF;border-radius:4px;display:inline-block}
 .steps{background:var(--sf2);border:1px solid var(--bd);border-radius:6px;
   padding:2px 11px;margin-bottom:10px}
 .step{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--bd)}
@@ -161,7 +160,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
   align-items:center;justify-content:center;font-size:9px;font-weight:700;
   color:white;flex-shrink:0;font-family:monospace}
 .st3{font-size:12px;font-weight:700;color:var(--tx);margin-bottom:2px}
-.sd{font-size:11.5px;color:var(--tm);line-height:1.6;white-space:pre-line}
+.sd{font-size:11.5px;color:#4A3728;line-height:1.6;white-space:pre-line}
 .tw{border-radius:6px;overflow:hidden;border:1px solid var(--bd);margin-bottom:10px}
 table{width:100%;border-collapse:collapse}
 th{background:var(--sf2);padding:7px 10px;text-align:left;font-size:10px;
@@ -172,7 +171,7 @@ td{padding:8px 10px;font-size:11.5px;vertical-align:top;
 tr:last-child td{border-bottom:none}
 tr:nth-child(even) td{background:var(--sf2)}
 td:first-child{color:var(--tx);font-weight:500}
-td:not(:first-child){color:var(--tm)}
+td:not(:first-child){color:#2A4060}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
 .tag{background:#FFEBEE;border:1px solid #EF9A9A;color:#C62828;padding:2px 8px;
   border-radius:20px;font-size:11px;font-weight:500}
@@ -194,6 +193,15 @@ td:not(:first-child){color:var(--tm)}
 .sri-ch{font-family:monospace;font-size:10px;color:var(--tm);margin-bottom:2px}
 .sri-t{font-size:12px;font-weight:600;color:var(--tx)}
 mark{background:#FFF176;color:#4E342E;border-radius:3px;padding:0 2px}
+
+/* Hộp vi phạm */
+.vp{background:#FFF0F0;border:1.5px solid #FFCDD2;border-radius:6px;padding:9px 11px;margin-bottom:10px}
+.vp .vt{font-weight:700;color:#C62828;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.vp-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #FFCDD2}
+.vp-row:last-child{border-bottom:none;padding-bottom:0}
+.vp-vi{flex:1.4;font-size:11.5px;color:var(--tx)}
+.vp-ph{flex:1;font-size:11.5px;color:var(--tx);font-weight:700}
+.vp-body{font-size:12px;color:var(--tx);line-height:1.7}
 </style>
 </head>
 <body>
@@ -355,24 +363,51 @@ Sai lệch/hư → báo PM ngay
 <div class="dsec">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🚚</span><span class="dsl">Claim nhà vận chuyển</span><span class="dsm">3 tình huống</span><span class="cv">▼</span></div>
 <div class="dsec-body">
-<div class="bw"><div class="wt">⚠️ Kiểm tra ngay khi thùng có dấu hiệu:</div><div class="bw-body">Ẩm ướt · móp · rách · băng keo LC bị rạch · lộ khe hở cạnh thùng</div></div>
-<div class="stl">TH1 — NVC giao đồng kiểm (Viettel Post, Nhất Tín, Kerry...)</div>
+<div class="ba">📌 Mã tài liệu: 02-QT/HC/HDCV/FRT.LC · Hiệu lực: 10/07/2025</div>
+
+<div class="stl">Các trường hợp cần claim</div>
+<div class="bn"><div class="nt">👤 KH khiếu nại:</div>• Lấy/giao hàng trễ hơn dự kiến
+• Hàng đến tay KH bị móp, méo, vỡ
+• Bưu tá thái độ không chuẩn mực</div>
+<div class="bn"><div class="nt">📦 Hàng hóa bất thường trong LCNB:</div>• Quá <strong>7 ngày</strong> kể từ khi xuất hàng cho NVC mà đầu nhận chưa nhận được
+• SL/CL hàng nhận không giống hàng gửi (thiếu, móp, méo, rách, vỡ, mở hộp...)</div>
+
+<div class="stl">Dấu hiệu bất thường cần chú ý khi nhận hàng LCNB</div>
+<div class="bw"><div class="wt">⚠️ Kiểm tra ngay khi thùng có dấu hiệu:</div><div class="bw-body">• Thùng hàng ẩm ướt · móp · rách<br>• Băng keo <strong>thường đè lên</strong> băng keo Long Châu<br>• Góc/cạnh băng keo LC bị <strong>khui, rạch</strong><br>• Băng keo dán lệch, không khít cạnh<br>• Thùng <strong>không dán niêm phong</strong> băng keo Long Châu</div></div>
+
+<div class="stl">TH1 — KH khiếu nại</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">KH khiếu nại lên CSKH</div><div class="sd">CSKH tạo calllog chuyển QA → QA kiểm tra → lỗi NVC → tạo ticket claim</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Hàng KH từ chối nhận / đổi hàng mới</div><div class="sd">Hàng hoàn về shop → lập biên bản đồng kiểm với bưu tá → tạo đơn mới gửi KH → hàng hư chuyển kho riêng chờ xử lý</div></div></div>
+</div>
+
+<div class="stl">TH2 — NVC giao đồng kiểm (Viettel Post, Nhất Tín, Kerry...)</div>
 <div class="steps">
 <div class="step"><div class="sn2">1</div><div><div class="st3">Lập biên bản tại chỗ với NVC</div><div class="sd">Nhập SL đủ bán · hàng hỏng → khu CXL riêng</div></div></div>
 <div class="step"><div class="sn2">2</div><div><div class="st3">Tạo ticket Claim NVC + Gửi mail kèm mã ticket</div><div class="sd">📧 FLC.HanhChinh@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
 </div>
-<div class="stl">TH2 — Xe kho tổng, xe còn tại chỗ</div>
+
+<div class="stl">TH3 — Phát hiện bất thường khi nhận hàng LCNB</div>
 <div class="steps">
-<div class="step"><div class="sn2">1</div><div><div class="st3">Lập biên bản tại chỗ</div><div class="sd">Claim NVC chọn <strong>"Khác"</strong> + ghi rõ biển số xe tải</div></div></div>
-<div class="step"><div class="sn2">2</div><div><div class="st3">Nhập SL đủ bán · hàng hỏng → khu CXL · Gửi mail</div><div class="sd">📧 FLC.HanhChinh@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
+<div class="step"><div class="sn2">B1</div><div><div class="st3">Chụp ảnh ngay + yêu cầu NVC khui thùng đồng kiểm trước camera</div></div></div>
+<div class="step"><div class="sn2">B2</div><div><div class="st3">Kiểm tra hàng bên trong</div><div class="sd">✅ Chỉ bất thường bên ngoài, bên trong bình thường → nhập hàng bình thường
+❌ Bên trong bất thường → lập biên bản với NVC (có chữ ký NV giao hàng + Quản lý NT)</div></div></div>
+<div class="step"><div class="sn2">B3</div><div><div class="st3">Nhập hàng đủ điều kiện bán vào hệ thống</div><div class="sd">Hàng hư → chuyển kho riêng chờ xử lý</div></div></div>
+<div class="step"><div class="sn2">B4</div><div><div class="st3">Tạo ticket claim NVC trong vòng 48h kể từ khi nhận hàng</div><div class="sd">📧 FLC.HanhChinh@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
 </div>
-<div class="stl">TH3 — Phát hiện sau khi xe rời</div>
-<div class="steps">
-<div class="step"><div class="sn2">1</div><div><div class="st3">Nhập SL đủ bán · hàng hỏng → khu CXL · Tạo ticket · Trích xuất camera</div></div></div>
-<div class="step"><div class="sn2">2</div><div><div class="st3">Gửi mail → QA kiểm tra và đưa ra hướng xử lý</div><div class="sd">📧 FLC.QA@fpt.com · FLC.KhoHNI@fpt.com</div></div></div>
-</div>
-<div class="bn"><div class="nt">💡 Lưu ý</div>Hàng rách vỏ nhẹ → giảm giá quỹ tự tin hoặc xin Ngành hàng → KHÔNG cần Claim</div>
+
+<div class="stl">Thông tin ticket cần cung cấp đầy đủ</div>
+<div class="bg2"><div class="gnt">📋 Bắt buộc có đủ 5 mục:</div>• Thông tin hàng/thùng hàng cần claim
+• Tên NVC claim + mã vận đơn
+• Phiếu LCNB
+• Biên bản kiểm kê hàng hư hỏng <strong>(có xác nhận NVC)</strong>
+• Hình ảnh bên ngoài + bên trong kiện hàng, hình ảnh hàng lỗi</div>
+
+<div class="bw"><div class="wt">⚠️ Lưu ý QUAN TRỌNG:</div><div class="bw-body">Không cung cấp đủ thông tin theo quy định → <strong>bên nhận hàng chịu trách nhiệm đền bù toàn bộ thiệt hại</strong></div></div>
+
+<div class="bn"><div class="nt">💡 Lưu ý:</div>Hàng rách vỏ nhẹ → giảm giá quỹ tự tin hoặc xin Ngành hàng → KHÔNG cần Claim</div>
 <a href="https://ssc.fptshop.com.vn/secure/SSC01CreateTicket.jspa" class="lnk" target="_blank">🔗 Tạo ticket Claim NVC</a>
+<a href="https://qms.fpt.com/document-detail/a461d161-3387-42ae-a53c-ff208b219704/view" class="lnk" target="_blank">📎 Tài liệu quy trình Claim NVC chính thức</a>
 </div>
 </div>
 </div>
@@ -502,63 +537,133 @@ Sai lệch/hư → báo PM ngay
 <div class="ch" data-p="1">
 <div class="ch-hdr" onclick="tog(this)"><span class="chn">CH.3</span><span class="cht2">Đổi trả & Giảm giá</span><span class="chc">3 nhóm</span><span class="cv">▼</span></div>
 <div class="ch-body">
-<div class="grp">
-<div class="grp-hdr" onclick="tog(this)"><span class="gi">💲</span><span class="gt">Giảm giá</span><span class="gc">3 mục</span><span class="cv">▼</span></div>
-<div class="grp-body">
-<div class="sec">
-<div class="sec-hdr" onclick="tog(this)"><span class="sic">✅</span><span class="sl">Giảm giá quỹ tự tin</span><span class="cv">▼</span></div>
-<div class="sec-body">
-<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Đối thủ BOD · bill trong 3 ngày → upload "Báo hàng giá cao" mRSA</div>
-</div>
-</div>
-<div class="sec">
-<div class="sec-hdr" onclick="tog(this)"><span class="sic">⚖️</span><span class="sl">Giảm giá cân quỹ</span><span class="cv">▼</span></div>
-<div class="sec-body">
-<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Traphaco / Tâm Bình / Ecogreen: Điều chỉnh giá → inside + pass SM</div>
-</div>
-</div>
-<div class="sec">
-<div class="sec-hdr" onclick="tog(this)"><span class="sic">📅</span><span class="sl">Giảm giá hàng cận date</span><span class="cv">▼</span></div>
-<div class="sec-body">
-<div class="tw"><table><thead><tr><th>Ngành hàng</th><th>6>HSD≥4T</th><th>4>HSD≥2T</th><th>HSD<2T</th></tr></thead><tbody><tr><td>Thuốc / TTBYT</td><td>10%</td><td>20%</td><td>40%</td></tr><tr><td>TPCN / Dược MP / FMCG</td><td>15%</td><td>30%</td><td>50%</td></tr></tbody></table></div>
-</div>
-</div>
-</div>
-</div>
 <div class="dsec">
-<div class="dsec-hdr" onclick="tog(this)"><span class="sic">✔️</span><span class="dsl">Phê duyệt</span><span class="dsm">Quy trình 4 bước</span><span class="cv">▼</span></div>
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">✅</span><span class="dsl">Chính sách tự chủ phê duyệt của shop</span><span class="cv">▼</span></div>
 <div class="dsec-body">
-<div class="bw"><div class="wt">⚠️ CẦN phê duyệt:</div><div class="bw-body"><div class="tags"><span class="tag">SP bị chặn số lượng bán</span><span class="tag">Đổi trả ngoài chính sách</span><span class="tag">Đơn hàng quá 30 ngày</span><span class="tag">Giảm giá phê duyệt Ngành hàng</span></div>
-</div></div>
+<div class="stl">Phần 1 — Không cần phê duyệt</div>
+<div class="tw"><table><thead><tr><th>Giao dịch</th><th>Hướng dẫn</th></tr></thead><tbody>
+<tr><td>Giảm giá 5%</td><td>Dựa vào bill đối thủ · chủ động giảm · không cần chờ ASM/PM phê duyệt</td></tr>
+<tr><td>Đổi trả lỗi NSX</td><td>Shop chủ động đánh giá tình trạng SP và thông tin KH để quyết định hướng xử lý</td></tr>
+</tbody></table></div>
+<div class="bn"><div class="nt">📌 Lưu ý giảm giá 5%:</div>• Đối thủ phải trong danh sách <strong>BOD phê duyệt</strong>
+• Bill đối thủ tạo trong vòng <strong>3 ngày</strong> gần nhất
+• Upload bill lên <strong>App FPharmacy</strong> → mục <strong>"Báo giá cao"</strong> để hậu kiểm</div>
+<div class="stl">Phần 2 — Cần phê duyệt</div>
+<div class="vp">
+<div class="vt">⚠️ Các trường hợp cần thông qua phê duyệt</div>
+<div class="vp-row"><span class="vp-vi">SP bị chặn số lượng bán</span><span class="vp-ph">Liên hệ Support 87333</span></div>
+<div class="vp-row"><span class="vp-vi">Nhập hàng mở từ cố có giá nhập &gt; 20% so với giá bán trên hệ thống</span><span class="vp-ph">Liên hệ Support 87333</span></div>
+<div class="vp-row"><span class="vp-vi">Đổi trả ngoài chính sách · đơn hàng quá 30 ngày</span><span class="vp-ph">Liên hệ Support 87333</span></div>
+</div>
+<div class="stl">Phần 3 — Quy trình khi cần phê duyệt</div>
 <div class="steps">
-<div class="step"><div class="sn2">1</div><div><div class="st3">NV liên hệ Support 87333</div><div class="sd">Cung cấp đầy đủ thông tin tình huống</div></div></div>
-<div class="step"><div class="sn2">2</div><div><div class="st3">Support liên hệ PM → quyết định ≤5 phút</div></div></div>
-<div class="step"><div class="sn2">3</div><div><div class="st3">Support phản hồi phương án</div></div></div>
-<div class="step"><div class="sn2">4</div><div><div class="st3">NV thực hiện theo phương án</div></div></div>
+<div class="step"><div class="sn2">1</div><div><div class="st3">NV liên hệ Support 87333 / Zalo OA</div><div class="sd">Cung cấp đầy đủ thông tin tình huống</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Support liên hệ phòng ban liên quan</div><div class="sd">Đưa ra quyết định trong vòng <strong>5 phút</strong></div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Support trao đổi phương án xử lý cuối cùng cho shop</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">NV thực hiện theo phương án 87333 đề xuất</div></div></div>
 </div>
 </div>
 </div>
-<div class="grp">
-<div class="grp-hdr" onclick="tog(this)"><span class="gi">🔄</span><span class="gt">Đổi trả</span><span class="gc">2 mục</span><span class="cv">▼</span></div>
-<div class="grp-body">
-<div class="sec">
-<div class="sec-hdr" onclick="tog(this)"><span class="sic">🔄</span><span class="sl">Đổi trả hàng</span><span class="sm">30 ngày</span><span class="cv">▼</span></div>
-<div class="sec-body">
-<div class="tw"><table><thead><tr><th>Loại</th><th>Điều kiện</th></tr></thead><tbody><tr><td>Lỗi NSX</td><td>Mọi ngành · TBYT: 1 năm · Miễn phí 100%</td></tr><tr><td>Không lỗi</td><td>Chưa qua sử dụng · ≤5 SP/mã · Mất vỏ hộp còn nguyên SP: thu 30%</td></tr></tbody></table></div>
-<div class="bw"><div class="wt">🚫 Tuyệt đối không đổi trả:</div><div class="bw-body"><div class="tags"><span class="tag">Thuốc Covid</span><span class="tag">Thuốc UT ≥5tr</span><span class="tag">Tiêm chích</span><span class="tag">Hàng lạnh</span><span class="tag">Hàng cắt liều</span><span class="tag">Hàng đặt theo YC</span><span class="tag">Que/bút thử</span><span class="tag">Bình xịt/nước</span><span class="tag">Kem/gel tuýp</span><span class="tag">Đã bóc seal</span><span class="tag">Vỉ đã cắt/đã dùng</span><span class="tag">Hàng KM</span></div>
-</div></div>
-<div class="tw"><table><thead><tr><th>Hoàn tiền</th><th>Thời gian</th></tr></thead><tbody><tr><td>Tiền mặt</td><td>Nhận ngay tại quầy</td></tr><tr><td>Chuyển khoản</td><td>KH điền link qua SMS → 2-3 ngày làm việc</td></tr></tbody></table></div>
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">💲</span><span class="dsl">Giảm giá</span><span class="dsm">3 loại</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="stl">Giảm giá quỹ tự tin</div>
+<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Đối thủ BOD · bill trong 3 ngày → upload "Báo hàng giá cao" mRSA</div>
+<div class="stl">Giảm giá cân quỹ</div>
+<div class="bg2"><div class="gnt">✅ Không cần phê duyệt:</div>Traphaco / Tâm Bình / Ecogreen: Điều chỉnh giá → inside + pass SM</div>
+<div class="stl">Giảm giá hàng cận date</div>
+<div class="tw"><table><thead><tr><th>Ngành hàng</th><th>6&gt;HSD≥4T</th><th>4&gt;HSD≥2T</th><th>HSD&lt;2T</th></tr></thead><tbody>
+<tr><td>Thuốc / TTBYT</td><td>10%</td><td>20%</td><td>40%</td></tr>
+<tr><td>TPCN / Dược MP / FMCG</td><td>15%</td><td>30%</td><td>50%</td></tr>
+</tbody></table></div>
 </div>
 </div>
-<div class="sec">
-<div class="sec-hdr" onclick="tog(this)"><span class="sic">🔍</span><span class="sl">Xử lý khi không có SĐT / không có bill</span><span class="cv">▼</span></div>
-<div class="sec-body">
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔄</span><span class="dsl">Quy định đổi trả hàng hóa</span><span class="dsm">Ver 1/5 · 05/03/2026</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="stl">1. Điều kiện đổi trả miễn phí</div>
+<div class="tw"><table><thead><tr><th>Tình trạng</th><th>Điều kiện</th></tr></thead><tbody>
+<tr><td>Có lỗi NSX</td><td>Trong vòng 30 ngày · Máy TBYT: 1 năm</td></tr>
+<tr><td>Không có lỗi NSX</td><td>Trong vòng 30 ngày · chưa sử dụng · không quá 5 SP cùng mã</td></tr>
+</tbody></table></div>
+<div class="bw"><div class="wt">⚠️ SP còn nguyên nhưng mất vỏ hộp: thu phí 30% giá trên HĐ</div></div>
+<div class="stl">2. Nhóm SP KHÔNG áp dụng đổi trả</div>
+<div class="vp">
+<div class="vt">🚫 Tuyệt đối không đổi trả</div>
+<div class="vp-body">• Thuốc Covid · Thuốc ung thư ≥5tr<br>• Hàng tiêm chích · hàng lạnh · hàng cắt liều · hàng đặt theo yêu cầu/dự án<br>• Bút/que thử · vớ · nẹp · kim các loại<br>• Bình xịt · kem/gel tuýp bôi<br>• Đã xé tem niêm phong/màng co · đã mở hộp · không còn nguyên vẹn<br>• SP khuyến mãi hoặc đã có thông báo loại trừ</div>
+</div>
+<div class="stl">3. Phương thức hoàn tiền</div>
+<div class="tw"><table><thead><tr><th>Hoàn tiền</th><th>Thời gian</th></tr></thead><tbody>
+<tr><td>Tại quầy (tiền mặt)</td><td>Nhận ngay tại cửa hàng</td></tr>
+<tr><td>Chuyển khoản</td><td>Long Châu gửi link → KH điền thông tin → hoàn 2-3 ngày làm việc</td></tr>
+</tbody></table></div>
+<div class="bn"><div class="nt">📌 Lưu ý:</div>• Yêu cầu có SĐT trên bill để tra cứu
+• Phải hoàn trả SP tặng kèm (nếu có) hoặc Long Châu thu lại tiền tương đương</div>
+<a href="https://qms.fpt.com/document-detail/af4b16c5-2c8b-46e9-99f3-53ea0b7ee922/view" class="lnk" target="_blank">📎 Tài liệu quy định đổi trả chính thức</a>
+</div>
+</div>
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">📋</span><span class="dsl">Quy trình đổi trả & phân luồng nhập kho</span><span class="dsm">Ver 1/2 · 17/05/2025</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Tiếp nhận thông tin đổi trả từ KH</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Kiểm tra điều kiện đổi trả</div><div class="sd">Không đủ → từ chối, trả lại SP cho KH
+Đủ điều kiện → thực hiện thao tác trên hệ thống</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Nhập số lượng, lý do, tiêu chí trả hàng</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Nhập số lô SP → hệ thống kiểm tra nguồn gốc</div><div class="sd">Số lô không hợp lệ (không phải hàng Long Châu) → từ chối trả hàng
+Số lô hợp lệ → tiếp tục</div></div></div>
+<div class="step"><div class="sn2">5</div><div><div class="st3">Chi tiền và hoàn tất trả hàng trên hệ thống</div></div></div>
+<div class="step"><div class="sn2">6</div><div><div class="st3">Hệ thống tự động phân luồng SP trả về đúng kho</div></div></div>
+<div class="step"><div class="sn2">7</div><div><div class="st3">NV lưu trữ SP đúng nơi quy định</div></div></div>
+</div>
+<div class="stl">Phân luồng nhập kho</div>
+<div class="tw"><table><thead><tr><th>Lý do trả</th><th>Tình trạng</th><th>Kết quả</th></tr></thead><tbody>
+<tr><td>Lỗi NSX</td><td>Chưa/đã sử dụng</td><td>Kho CXL</td></tr>
+<tr><td>Theo nhu cầu</td><td>Chưa sử dụng (L1,2)</td><td>Kho hàng xuất</td></tr>
+<tr><td>Theo nhu cầu</td><td>Chưa sử dụng (L3)</td><td>Không trả</td></tr>
+<tr><td>Theo nhu cầu</td><td>Đã sử dụng 1 phần</td><td>Kho thanh lý / CXL</td></tr>
+<tr><td>Sai thao tác</td><td>Chưa sử dụng</td><td>Kho hàng xuất</td></tr>
+<tr><td>Sai thao tác</td><td>Đã sử dụng 1 phần</td><td>Kho thanh lý / hàng xuất</td></tr>
+</tbody></table></div>
+<div class="bg2"><div class="gnt">📌 Xử lý sau phân luồng:</div>• <strong>Kho hàng xuất:</strong> sắp xếp đúng khu vực, tiếp tục bán mới
+• <strong>Kho CXL:</strong> xuất về Kho tổng theo yêu cầu rút hàng định kỳ
+• <strong>Kho thanh lý:</strong> KSNB kiểm kê và xuất thanh lý tại shop</div>
+</div>
+</div>
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔧</span><span class="dsl">Quy trình đổi trả máy Thiết bị Y tế</span><span class="dsm">Ver 1/4 · 07/05/2026</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="ba">📌 Áp dụng 11 loại máy: Máy mát xa · Hút mũi · Đo tổng hợp · Tạo oxy · Đo SPO2 · Xông khí dung · Đo huyết áp · Đo đường huyết · Bàn chải điện · Tăm nước · Nhiệt kế</div>
+<div class="tw"><table><thead><tr><th>Lý do</th><th>Chính sách</th><th>Điều kiện</th></tr></thead><tbody>
+<tr><td>Lỗi NSX – trong 1 năm đầu</td><td>Miễn phí 1 đổi 1 tại Long Châu</td><td>SP đủ thành phần chính · bất kỳ NT Long Châu toàn quốc</td></tr>
+<tr><td>Lỗi NSX – trong thời gian BH</td><td>Bảo hành tại Hãng</td><td>Theo quy định của Hãng</td></tr>
+<tr><td>Theo nhu cầu (không lỗi)</td><td>Miễn phí đổi/trả trong 30 ngày đầu</td><td>Chưa sử dụng · SP đủ thành phần chính</td></tr>
+</tbody></table></div>
+<div class="vp"><div class="vt">🚫 KHÔNG áp dụng đổi trả nếu SP đã qua sử dụng</div></div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Tiếp nhận yêu cầu · tư vấn chính sách · khai thác lý do đổi trả</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Kiểm tra tình trạng SP</div><div class="sd">Không đủ điều kiện → từ chối, trả lại máy cho KH
+Đủ điều kiện → thẩm định lỗi bằng máy demo tại shop</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Đưa hướng xử lý</div><div class="sd">Không có lỗi NSX: KH đồng ý → trả lại máy · KH không đồng ý → đổi SP mới (KHÔNG thao tác hệ thống)
+Có lỗi NSX: Đổi SP mới cho KH (KHÔNG thao tác hệ thống)</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Thực hiện LCNB kho con về kho CXL</div></div></div>
+<div class="step"><div class="sn2">5</div><div><div class="st3">Kho tổng rút hàng từ kho CXL định kỳ</div><div class="sd">Shop chuyển hàng về kho theo lệnh LCNB</div></div></div>
+<div class="step"><div class="sn2">6</div><div><div class="st3">Kho tổng tái thẩm định lỗi và xử lý bảo hành với NCC</div></div></div>
+</div>
+</div>
+</div>
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔍</span><span class="dsl">Xử lý khi không có SĐT / không có bill</span><span class="cv">▼</span></div>
+<div class="dsec-body">
 <div class="steps">
 <div class="step"><div class="sn2">1</div><div><div class="st3">Tìm theo lịch sử giao dịch mã SP</div><div class="sd">RSA → tra cứu lịch sử → nhập mã SP → lọc theo thời gian KH cung cấp</div></div></div>
 <div class="step"><div class="sn2">2</div><div><div class="st3">Hỏi KH thu hẹp kết quả</div><div class="sd">Mua khoảng thời gian nào? SP mua kèm gì? TM hay CK?</div></div></div>
 <div class="step"><div class="sn2">3</div><div><div class="st3">Không tìm được đơn</div><div class="sd">Giải thích lịch sự · Đề nghị KH kiểm tra SĐT khác</div></div></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -608,7 +713,8 @@ Subject: Mã shop_Bán nợ</div>
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🧾</span><span class="dsl">Hóa đơn VAT</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Hạn chế Trả hàng → Xuất bán lại · Dùng "Điều chỉnh hóa đơn" thay vì trả hàng</div>
-<a href="https://drive.google.com/drive/folders/1XgORInJh1q-tNSo2KXVNKujPWiOlUH_o" class="lnk" target="_blank">📎 Hướng dẫn cấp phát & điều chỉnh HĐ</a>
+<div class="bw"><div class="wt">⚠️ Lưu ý quan trọng khi trả hàng:</div><div class="bw-body">• Khi shop trả hàng &amp; xuất HĐ mới → <strong>ngày HĐ = ngày hiện tại</strong><br>• Phải <strong>xác nhận KH đồng ý</strong> trước khi xử lý trả hàng<br>• Các thông tin cần điều chỉnh → dùng <strong>"Điều chỉnh hóa đơn"</strong> thay vì trả hàng</div></div>
+<a href="https://drive.google.com/drive/folders/1XgORInJh1q-tNSo2KXVNKujPWiOlUH_o" class="lnk" target="_blank">📎 Hướng dẫn cấp phát &amp; điều chỉnh HĐ</a>
 </div>
 </div>
 <div class="dsec">
@@ -733,6 +839,15 @@ Cú pháp: Mã shop (8****) · VD: 80073 · 81145 · 80244</div>
 <div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>SP cận date tem hồng · SP hết date → chuyển kho thanh lý
 Tem hồng → chỉ kiểm số lượng, không in lại barcode</div>
 <a href="https://qms.fpt.com/document-detail/b539c178-b8da-437e-811e-d15e46def012/view" class="lnk" target="_blank">📎 Tài liệu kiểm kê cận date</a>
+
+<div class="stl">Dán tem màu theo dõi SP sắp cận date</div>
+<div class="bg2"><div class="gnt">📌 SP có HSD còn 12-15 tháng:</div>Dán tem màu để dễ nhận biết và có hướng xử lý sớm trước khi chuyển sang ngưỡng kiểm kê chính thức</div>
+
+<div class="stl">Nhận hàng cận date chưa có tem vàng từ kho tổng</div>
+<div class="bn"><div class="nt">📋 Quy trình xử lý:</div>• Gửi mail ghi nhận: <strong>FLC.KhoHNI@fpt.com</strong> + <strong>FLC.QA@fpt.com</strong>
+• Lưu thông tin nhập hàng cận date trong <strong>nhóm kiểm kê của shop</strong>
+• Tiến hành kiểm kê cận date bình thường ở các kỳ tiếp theo</div>
+<div class="bg2"><div class="gnt">💡 Lưu ý:</div>Nếu đã có dòng note của <strong>Ngành hàng trên HO</strong> → không cần gửi mail thắc mắc</div>
 </div>
 </div>
 <div class="dsec">
@@ -756,8 +871,48 @@ Tem hồng → chỉ kiểm số lượng, không in lại barcode</div>
 <div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>HSD ≤ 2 tháng · Hàng đặc trị · Hàng cắt liều · Thuốc kê đơn không có sức bán 90 ngày · Kit test Covid · Tem hồng · Shop mở bán &lt; 2 tháng</div>
 <div class="bn"><div class="nt">⚠️ Lưu ý</div>Hàng cận date CHỈ tính khi bán bằng BARCODE CẬN DATE đã dán khi kiểm kê</div>
 <a href="https://qms.fpt.com/document-detail/c11c55c7-b8f2-4dc7-b056-d637712b9ddf/view" class="lnk" target="_blank">📎 Quy định tính KPI cận date</a>
+
+<div class="bn"><div class="nt">📧 Vấn đề về KPI cận date:</div>Thắc mắc hoặc khiếu nại về KPI cận date → mail <strong>FLC.QA@fpt.com</strong></div>
 </div>
 </div>
+</div>
+</div>
+<div class="ch" data-p="2">
+<div class="ch-hdr" onclick="tog(this)"><span class="chn">CH.4</span><span class="cht2">Xử lý hàng lỗi & Thanh lý</span><span class="cv">▼</span></div>
+<div class="ch-body">
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">⚠️</span><span class="dsl">Quy định xử lý hàng lỗi – Hàng thanh lý</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="bw"><div class="wt">🚫 TUYỆT ĐỐI không tự ý thanh lý hàng hóa tại shop</div><div class="bw-body">Tất cả hàng lỗi/thanh lý phải thông qua <strong>Ngành hàng</strong></div></div>
+
+<div class="stl">Hàng lỗi (đổi màu, bể vỡ, hư hỏng...)</div>
+<div class="steps">
+<div class="step"><div class="sn2">1</div><div><div class="st3">Shop tạo phiếu xử lý hàng lỗi</div></div></div>
+<div class="step"><div class="sn2">2</div><div><div class="st3">Chuyển về kho chờ xử lý</div></div></div>
+<div class="step"><div class="sn2">3</div><div><div class="st3">Ngành hàng xem xét</div></div></div>
+<div class="step"><div class="sn2">4</div><div><div class="st3">Chuyển sang kho thanh lý của shop</div></div></div>
+</div>
+
+<div class="stl">Hàng cận date & Hết date</div>
+<div class="tw"><table><thead><tr><th>Loại</th><th>Thao tác</th></tr></thead><tbody>
+<tr><td>Cận date (dưới 30 ngày)</td><td>Shop trực tiếp chuyển sang kho thanh lý</td></tr>
+<tr><td>Hết date</td><td>Shop trực tiếp chuyển sang kho thanh lý</td></tr>
+</tbody></table></div>
+<div class="bw"><div class="wt">🔴 Bắt buộc:</div><div class="bw-body">Bắn kiểm kê cận date <strong>các kỳ trước</strong> khi chuyển kho</div></div>
+</div>
+</div>
+
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">📋</span><span class="dsl">Hàng lỗi khi nhập hàng</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="ba">📌 Phát hiện hàng lỗi trong quá trình nhập hàng → báo ngay:</div>
+<div class="bg2"><div class="gnt">👥 Đầu tiên:</div>Báo Group FPTChat: <strong>"KSNB - Vùng MB2"</strong></div>
+<div class="bn"><div class="nt">📧 Cần hỗ trợ điều vận hàng hóa:</div>VD: Hàng tồn nhiều không có sức bán cần rút đi
+Mail: <strong>FLC.KSNH@fpt.com</strong></div>
+</div>
+</div>
+
 </div>
 </div>
 <div class="ch" data-p="2">
