@@ -20,7 +20,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
   background:var(--bg);color:var(--tx);max-width:520px;margin:0 auto;
   font-size:13px;line-height:1.5;min-height:100%}
 
-/* HEADER */
+
 .hdr{position:sticky;top:0;z-index:100;background:#F0F4F8F5;
   border-bottom:2px solid var(--bd);padding:10px 16px}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -36,7 +36,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .sinp:focus{border-color:var(--p1)}
 .sinp::placeholder{color:var(--td)}
 
-/* TABS */
+
 .tabs{display:flex;gap:6px;padding:10px 16px 0;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:700;
@@ -47,12 +47,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .tab.act-3{background:var(--p3);border-color:var(--p3);color:#fff}
 .tab.act-4{background:var(--p4);border-color:var(--p4);color:#fff}
 
-/* MAIN */
+
 #app{padding:12px 16px 800px}
 .pg{display:none;flex-direction:column;gap:10px}
 .pg.on{display:flex}
 
-/* CHAPTER */
+
 .ch{background:var(--sf);border-radius:10px;border:1.5px solid var(--bd);
   overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .ch-hdr{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;
@@ -65,9 +65,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .cv{font-size:10px;color:#4A6080;flex-shrink:0}
 .ch-hdr.on .cv{transform:rotate(180deg)}
 .ch-body{display:none;padding:8px 8px 48px;background:var(--bg)}
-.ch-body.on{display:block}
+.ch-body.on{display:block;padding-bottom:48px}
 
-/* P1 chapter colors */
+
 [data-p="1"] .chn{color:var(--p1);background:var(--p1d);border-color:var(--p1b)}
 [data-p="1"] .ch-hdr.on{background:var(--p1d);border-bottom-color:var(--p1b)}
 [data-p="1"] .ch-hdr.on .cv{color:var(--p1)}
@@ -81,7 +81,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 [data-p="4"] .ch-hdr.on{background:var(--p4d);border-bottom-color:var(--p4b)}
 [data-p="4"] .ch-hdr.on .cv{color:var(--p4)}
 
-/* GROUP */
+
 .grp{background:var(--sf);border-radius:7px;border:1.5px solid var(--bd);
   overflow:hidden;margin-bottom:8px}
 .grp:last-child{margin-bottom:0}
@@ -92,9 +92,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .gt{font-size:12px;font-weight:700;flex:1}
 .gc{font-family:monospace;font-size:11px;color:#3E2723;font-weight:600;flex-shrink:0}
 .grp-body{display:none;padding:8px 8px 40px;background:var(--bg)}
-.grp-body.on{display:block}
+.grp-body.on{display:block;padding-bottom:40px}
 
-/* Active group per part */
+
 [data-p="1"] .grp-hdr.on{background:var(--p1d);border-bottom-color:var(--p1b)}
 [data-p="1"] .grp-hdr.on .gt{color:var(--p1)}
 [data-p="1"] .grp-hdr.on .cv{transform:rotate(180deg);color:var(--p1)}
@@ -108,7 +108,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 [data-p="4"] .grp-hdr.on .gt{color:var(--p4)}
 [data-p="4"] .grp-hdr.on .cv{transform:rotate(180deg);color:var(--p4)}
 
-/* SECTION */
+
 .sec{background:var(--sf);border-radius:6px;border:1px solid var(--bd);
   overflow:hidden;margin-bottom:6px}
 .sec:last-child{margin-bottom:0}
@@ -122,7 +122,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .sec-body{display:none;padding:12px 13px 40px;background:var(--sf)}
 .sec-body.on{display:block}
 
-/* DSEC */
+
 .dsec{background:var(--sf);border-radius:7px;border:1.5px solid var(--bd);
   overflow:hidden;margin-bottom:8px}
 .dsec:last-child{margin-bottom:0}
@@ -135,7 +135,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .dsec-body{display:none;padding:12px 14px 40px;background:var(--sf)}
 .dsec-body.on{display:block}
 
-/* CONTENT */
+
 .ba{background:var(--p1d);border:1px solid var(--p1b);border-left:3px solid var(--p1);
   border-radius:6px;padding:9px 11px;font-size:12px;color:#0D47A1;line-height:1.6;
   margin-bottom:10px;font-weight:500;white-space:pre-line}
@@ -194,7 +194,7 @@ td:not(:first-child){color:#2A4060}
 .sri-t{font-size:12px;font-weight:600;color:var(--tx)}
 mark{background:#FFF176;color:#4E342E;border-radius:3px;padding:0 2px}
 
-/* Hộp vi phạm */
+
 .vp{background:#FFF0F0;border:1.5px solid #FFCDD2;border-radius:6px;padding:9px 11px;margin-bottom:10px}
 .vp .vt{font-weight:700;color:#C62828;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px}
 .vp-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #FFCDD2}
@@ -203,16 +203,32 @@ mark{background:#FFF176;color:#4E342E;border-radius:3px;padding:0 2px}
 .vp-ph{flex:1;font-size:11.5px;color:var(--tx);font-weight:700}
 .vp-body{font-size:12px;color:var(--tx);line-height:1.7}
 
-/* Extra scroll space for last nested items */
+
 .grp:last-child .dsec:last-child .dsec-body.on{padding-bottom:32px}
 .ch-body .dsec:last-child .dsec-body.on{padding-bottom:32px}
+
+
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+}
+#app {
+  min-height: 100vh;
+}
+
+.ver{font-family:var(--fm);font-size:9px;font-weight:600;color:var(--p1);flex-shrink:0;opacity:.7}
 </style>
 </head>
 <body>
 <div class="hdr">
   <div class="hdr-top">
     <div class="logo"><div class="ldot"></div><span class="ltxt">FPT LONG CHÂU · MB2</span></div>
-    <div class="htitle">Sổ Tay SM</div>
+    <div style="display:flex;align-items:baseline;gap:5px">
+      <div class="htitle">Sổ Tay SM</div>
+      <div class="ver">v7.3</div>
+    </div>
   </div>
   <div class="sw">
     <span class="si">🔍</span>
@@ -1352,22 +1368,19 @@ Không có hàng → chủ động báo KH · không để KH hỏi trước</di
 <div class="footer">FPT LONG CHÂU · SỔ TAY SM · MIỀN BẮC 2 · 2026</div>
 </div><!-- end app -->
 
-<script>
+<script defer>
 // ── TAB SWITCHING ─────────────────────────────────
 var tabBar = document.getElementById('tabBar');
 tabBar.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click', function(){
     var p = this.dataset.p;
-    // Update tabs
     tabBar.querySelectorAll('.tab').forEach(function(x){
       x.className = x.className.replace(/\bact-\d\b/,'').trim();
     });
     this.classList.add('act-'+p);
-    // Update pages
     document.querySelectorAll('.pg').forEach(function(x){ x.classList.remove('on'); });
     var pg = document.getElementById('p'+p);
     if(pg) pg.classList.add('on');
-    // Notify height
     notifyHeight();
   });
 });
@@ -1376,27 +1389,24 @@ tabBar.querySelectorAll('.tab').forEach(function(t){
 function tog(hdr){
   var body = hdr.nextElementSibling;
   var isOn = hdr.classList.contains('on');
-  // Collapse all siblings of same type
+  var cls = hdr.className.split(' ')[0];
   var parent = hdr.parentElement.parentElement;
-  var cls = hdr.className.split(' ')[0]; // ch-hdr, grp-hdr, sec-hdr, dsec-hdr
-  parent.querySelectorAll('.' + cls).forEach(function(h){
-    if(h !== hdr){
-      h.classList.remove('on');
-      if(h.nextElementSibling) h.nextElementSibling.classList.remove('on');
-    }
+  parent.querySelectorAll('.'+cls).forEach(function(h){
+    if(h !== hdr){ h.classList.remove('on'); if(h.nextElementSibling) h.nextElementSibling.classList.remove('on'); }
   });
-  // Toggle self
-  hdr.classList.toggle('on', !isOn);
-  body.classList.toggle('on', !isOn);
-  setTimeout(notifyHeight, 200);
+  hdr.classList.toggle('on',!isOn);
+  body.classList.toggle('on',!isOn);
+  setTimeout(notifyHeight, 150);
 }
 
-// ── SEARCH ────────────────────────────────────────
-var idx = [];
-(function buildIndex(){
+// ── SEARCH — lazy build on first use ──────────────
+var idx = null;
+
+function buildIndex(){
+  if(idx) return;
+  idx = [];
   document.querySelectorAll('.sec-hdr,.dsec-hdr').forEach(function(hdr){
-    var body = hdr.nextElementSibling;
-    if(!body) return;
+    var body = hdr.nextElementSibling; if(!body) return;
     var pg = hdr.closest('.pg');
     var ch = hdr.closest('.ch');
     var grp = hdr.closest('.grp');
@@ -1407,10 +1417,10 @@ var idx = [];
     var txt = body.textContent;
     var chHdr = ch ? ch.querySelector('.ch-hdr') : null;
     var grpHdr = grp ? grp.querySelector('.grp-hdr') : null;
-    idx.push({pNum:pNum, chTitle:chTitle, grpTitle:grpTitle, label:label, txt:txt,
-              el:hdr.parentElement, chHdr:chHdr, grpHdr:grpHdr, secHdr:hdr});
+    idx.push({pNum:pNum,chTitle:chTitle,grpTitle:grpTitle,label:label,txt:txt,
+              el:hdr.parentElement,chHdr:chHdr,grpHdr:grpHdr,secHdr:hdr});
   });
-})();
+}
 
 var PL = {'1':'🔧 Vận hành','2':'📦 Kho & KK','3':'🏛️ Quy định','4':'🎯 Kỹ năng'};
 
@@ -1420,6 +1430,7 @@ function doSearch(q){
   var emp = document.getElementById('empty');
   out.innerHTML = '';
   if(!q){ out.style.display='none'; emp.style.display='none'; return; }
+  buildIndex(); // lazy — chỉ build khi search lần đầu
   var res = idx.filter(function(i){
     return i.label.toLowerCase().indexOf(q)>=0 || i.txt.toLowerCase().indexOf(q)>=0;
   });
@@ -1433,16 +1444,11 @@ function doSearch(q){
     if(i.grpTitle) path += ' › '+i.grpTitle;
     d.innerHTML = '<div class="sri-ch">'+path+'</div><div class="sri-t">'+hl(i.label,q)+'</div>';
     d.onclick = function(){
-      // Switch tab
       var tab = tabBar.querySelector('[data-p="'+i.pNum+'"]');
       if(tab) tab.click();
-      // Open chapter
       if(i.chHdr && !i.chHdr.classList.contains('on')) tog(i.chHdr);
-      // Open group
       if(i.grpHdr && !i.grpHdr.classList.contains('on')) tog(i.grpHdr);
-      // Open section
       if(!i.secHdr.classList.contains('on')) tog(i.secHdr);
-      // Clear search
       document.getElementById('searchInput').value = '';
       out.style.display='none'; out.innerHTML=''; emp.style.display='none';
       setTimeout(function(){ i.el.scrollIntoView({behavior:'smooth',block:'start'}); }, 250);
@@ -1456,14 +1462,26 @@ function hl(t,q){
   return t.replace(re,'<mark>$1</mark>');
 }
 
-// ── GOOGLE SITES IFRAME RESIZE ────────────────────
+// ── GOOGLE SITES RESIZE — throttled ───────────────
+var _nh = null;
 function notifyHeight(){
-  var h = document.getElementById('app').scrollHeight;
-  window.parent.postMessage({type:'setHeight', value:h}, '*');
-  window.parent.postMessage(JSON.stringify({type:'setHeight', value:h}), '*');
+  if(_nh) return;
+  _nh = setTimeout(function(){
+    var appEl = document.getElementById('app');
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      appEl ? appEl.scrollHeight : 0
+    ) + 100;
+    window.parent.postMessage({type:'setHeight',value:h},'*');
+    window.parent.postMessage(JSON.stringify({type:'setHeight',value:h}),'*');
+    _nh = null;
+  }, 200);
 }
-window.addEventListener('load', notifyHeight);
+window.addEventListener('load', function(){ setTimeout(notifyHeight, 300); });
 window.addEventListener('resize', notifyHeight);
+// Notify after any click (content expands)
+document.addEventListener('click', function(){ setTimeout(notifyHeight, 400); });
 </script>
 </body>
 </html>
