@@ -221,10 +221,10 @@ html, body {
 
 .ver{font-family:var(--fm);font-size:9px;font-weight:600;color:var(--p1);flex-shrink:0;opacity:.7}
 
-.nacc{background:#F8FBFF;border-radius:6px;border:1px solid var(--bd);overflow:hidden;margin-bottom:6px}
+.nacc{background:#EEF5FF;border-radius:6px;border:1px solid var(--p1b);border-left:3px solid var(--p1b);overflow:hidden;margin-bottom:6px}
 .nacc:last-child{margin-bottom:0}
-.nacc-hdr{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;background:#F8FBFF;-webkit-tap-highlight-color:rgba(0,0,0,.05)}
-.nacc-hdr.on{background:#E8F0FF;border-bottom:1px solid var(--p1b)}
+.nacc-hdr{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;background:#EEF5FF;-webkit-tap-highlight-color:rgba(0,0,0,.05)}
+.nacc-hdr.on{background:#DDEEFF;border-bottom:1.5px solid var(--p1)}
 .nacc-hdr.on .cv{transform:rotate(180deg);color:var(--p1)}
 .nacc-hdr.on .nt{color:var(--p1)}
 .nt{font-size:12px;font-weight:600;flex:1;color:var(--tx)}
@@ -243,12 +243,12 @@ html, body {
     <div class="logo"><div class="ldot"></div><span class="ltxt">FPT LONG CHÂU · MB2</span></div>
     <div style="display:flex;align-items:baseline;gap:5px">
       <div class="htitle">Sổ Tay SM</div>
-      <div class="ver">v7.7</div>
+      <div class="ver">v7.10</div>
     </div>
   </div>
   <div class="sw">
     <span class="si">🔍</span>
-    <input class="sinp" type="text" id="searchInput" placeholder="Tìm nội dung..." oninput="doSearch(this.value)">
+    <input class="sinp" type="text" id="searchInput" placeholder="Tìm nội dung... (VD: lcnb, pccc, đổi trả, nhap hang)" oninput="doSearch(this.value)">
   </div>
 </div>
 <div class="tabs" id="tabBar">
@@ -291,7 +291,7 @@ Sai lệch/hư → báo PM ngay
 <a href="https://qms.fpt.com/document-detail/62e57037-bf6d-4313-94cf-2c086e81c8b7/view" class="lnk" target="_blank">📎 Tài liệu nhập hàng NCC</a>
 </div>
 </div>
-<div class="sec">
+<div class="sec" data-keywords="lcnb luan chuyen dieu chuyen ycdc">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">🔄</span><span class="sl">Nhập hàng từ Shop (LCNB)</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="steps">
@@ -308,7 +308,7 @@ Sai lệch/hư → báo PM ngay
 <div class="vp"><div class="vt">⚖️ Xử phạt trễ hạn nhận hàng LCNB</div><div class="vp-body">Trễ hạn → phạt <strong>50.000đ/lệnh/ngày</strong> · Xem chi tiết → Tab ⚖️ Quy định</div></div>
 </div>
 </div>
-<div class="sec">
+<div class="sec" data-keywords="lcnb luan chuyen kho tong">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">🏢</span><span class="sl">Nhập hàng từ Kho tổng</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="steps">
@@ -326,6 +326,8 @@ Sai lệch/hư → báo PM ngay
 <strong>Nếu đã lỡ nhập đủ:</strong> Mail số HO tới FLC.KhoHNI@fpt.com · CC: ThamNTH18@fpt.com
 ⚠️ Cách này phải chờ hỗ trợ rất lâu</div>
 <div class="ba">💡 Luôn kiểm hàng kỹ dưới camera · nhập lệch đúng thực tế</div>
+
+<div class="vp"><div class="vt">⚖️ Xử phạt nhập hàng trễ hạn</div><div class="vp-body">Nhập trễ quá <strong>24h</strong> → Lần 1: Nhắc nhở · Từ lần 2: <strong>50.000đ/ngày</strong> · Xem chi tiết → Tab ⚖️ Quy định</div></div>
 </div>
 </div>
 </div>
@@ -333,7 +335,7 @@ Sai lệch/hư → báo PM ngay
 <div class="grp">
 <div class="grp-hdr" onclick="tog(this)"><span class="gi">📤</span><span class="gt">Xuất hàng</span><span class="cv">▼</span></div>
 <div class="grp-body">
-<div class="sec">
+<div class="sec" data-keywords="lcnb luan chuyen xuat hang mrp">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">🔄</span><span class="sl">Xuất LCNB</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="bw"><div class="wt">📷 Yêu cầu QUAN TRỌNG:</div><div class="bw-body"><strong>100% xuất hàng phải thực hiện dưới camera</strong>
@@ -373,7 +375,7 @@ Sai lệch/hư → báo PM ngay
 </div>
 </div>
 
-<div class="dsec">
+<div class="dsec" data-keywords="lcnb kho con luan chuyen noi bo">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔀</span><span class="dsl">LCNB Kho con</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 mRSA → LCNB → tab LC Kho con</div>
@@ -388,7 +390,7 @@ Sai lệch/hư → báo PM ngay
 <a href="https://qms.fpt.com/document-detail/26a27f88-b9c6-483b-aa71-1801410decbb/view" class="lnk" target="_blank">📎 Tài liệu LCNB Kho con</a>
 </div>
 </div>
-<div class="dsec">
+<div class="dsec" data-keywords="claim nvc hang loi boi thuong van chuyen">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🚚</span><span class="dsl">Claim nhà vận chuyển</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Mã tài liệu: 02-QT/HC/HDCV/FRT.LC · Hiệu lực: 10/07/2025</div>
@@ -445,23 +447,14 @@ Sai lệch/hư → báo PM ngay
 <div class="ch" data-p="1">
 <div class="ch-hdr" onclick="tog(this)"><span class="chn">CH.2</span><span class="cht2">Bán hàng</span><span class="cv">▼</span></div>
 <div class="ch-body">
-<div class="dsec">
-<div class="dsec-hdr" onclick="tog(this)"><span class="sic">⚖️</span><span class="dsl">Quy định nhập hàng & xuất hàng LCNB</span><span class="cv">▼</span></div>
-<div class="dsec-body">
-<div class="stl">Quy định nhập hàng</div>
-<div class="tw"><table><thead><tr><th>Vi phạm</th><th>Hình phạt</th></tr></thead><tbody><tr><td>Không kiểm hàng dưới camera → hàng hư/thất thoát</td><td>Bồi thường 100% giá trị hàng</td></tr><tr><td>Nhập hàng trễ quá 24h</td><td>Lần 1: Nhắc nhở · Từ lần 2: 50.000đ/ngày (tối đa 500.000đ)</td></tr><tr><td>Shop mới ≤ 30 ngày</td><td>Bắt đầu tính từ D+30</td></tr></tbody></table></div>
-<div class="stl">Thời hạn LCNB & Xử phạt xuất hàng</div>
-<div class="tw"><table><thead><tr><th>Hình thức</th><th>Thời hạn</th><th>Phạt trễ</th></tr></thead><tbody><tr><td>Shop → Shop (không qua KT)</td><td>3 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Shop (qua KT)</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Kho tổng → Shop</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Kho tổng (rút thừa)</td><td>3 ngày · SL ≥ 90%</td><td>Từ ngày 4: 50.000đ/ngày</td></tr></tbody></table></div>
-<div class="bw"><div class="wt">⚠️ Quy định:</div><div class="bw-body">• Shop &gt; 30 ngày: tính theo quy định · Shop ≤ 30 ngày: miễn phạt đến D+30<br>• Quá mốc chưa nhận hàng → <strong>chủ động liên hệ bộ phận gửi hàng</strong><br>• Bị phạt → mail <strong>FLC.QA@fpt.com</strong> + giải trình trên RSA</div></div>
-</div>
-</div>
+
 
 
 
 <div class="grp">
 <div class="grp-hdr" onclick="tog(this)"><span class="gi">💬</span><span class="gt">Tư vấn</span><span class="cv">▼</span></div>
 <div class="grp-body">
-<div class="sec">
+<div class="sec" data-keywords="da co minh bach tu van ban hang quy trinh">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">💬</span><span class="sl">Dạ Có - Minh Bạch</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="ba">📌 Không tự ý đổi biệt dược · Minh bạch giá để KH tự chọn Nội/Ngoại</div>
@@ -585,7 +578,7 @@ Sai lệch/hư → báo PM ngay
 <div class="bw"><div class="wt">⚠️ Thuốc ung thư ≥5tr: tuyệt đối không đổi trả · &lt;5tr: nguyên hộp trả nguyên hộp</div></div>
 </div>
 </div>
-<div class="sec">
+<div class="sec" data-keywords="insulin but tiem thu cu doi moi">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">💉</span><span class="sl">Thu cũ đổi mới bút Insulin</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="bw"><div class="wt">⚠️ Tối đa 5 bút/tháng/SĐT · Chỉ offline tại shop</div></div>
@@ -630,7 +623,7 @@ Sai lệch/hư → báo PM ngay
 </div>
 </div>
 
-<div class="dsec">
+<div class="dsec" data-keywords="thu them giao hang nvc ngoai">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">💰</span><span class="dsl">Thu đúng giá trị đơn giao hàng</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="bw"><div class="wt">🚫 Nghiêm cấm thu thêm tiền KH ngoài giá trị HĐ kể từ 06/06/2026</div></div>
@@ -703,7 +696,7 @@ Sai lệch/hư → báo PM ngay
 </div>
 
 <!-- ĐỔI TRẢ - accordion lồng 4 mục -->
-<div class="dsec">
+<div class="dsec" data-keywords="doi tra tra hang hoan hang chinh sach">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔄</span><span class="dsl">Đổi trả hàng hóa</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 
@@ -818,7 +811,7 @@ Mã shop - Vệ tinh - Nộp tiền bán hàng ngày dd/mm/yyyy</div>
 <a href="https://drive.google.com/drive/folders/1Xd9mNN7Oyp5PXSxyBjnVomRs15WK7FpW" class="lnk" target="_blank">📎 Hướng dẫn nộp tiền</a>
 </div>
 </div>
-<div class="dsec">
+<div class="dsec" data-keywords="ban no cong no">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">💳</span><span class="dsl">Bán nợ</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="bn"><div class="nt">📋 KH cũ:</div>Kiểm tra hạn mức: RSA → Vận hành shop → Công nợ → bán hàng luôn</div>
@@ -865,7 +858,7 @@ Subject: Mã shop_Bán nợ</div>
 <div class="grp">
 <div class="grp-hdr" onclick="tog(this)"><span class="gi">📊</span><span class="gt">Kế toán</span><span class="cv">▼</span></div>
 <div class="grp-body">
-<div class="dsec">
+<div class="dsec" data-keywords="pos ca the thanh toan the">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">💳</span><span class="dsl">Máy POS cà thẻ</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Máy POS phải đặt trên mặt quầy · Hỏng → báo KT HO ngay → KTHO xử lý D+2</div>
@@ -879,7 +872,7 @@ Subject: Mã shop_Bán nợ</div>
 <a href="https://drive.google.com/drive/folders/1SFgyJN8kxojsg3CB3LxNFwsBPHk4Iwh_" class="lnk" target="_blank">📎 DS user hỗ trợ kế toán</a>
 </div>
 </div>
-<div class="dsec">
+<div class="dsec" data-keywords="hoan tien refund tra tien khach hang">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">💸</span><span class="dsl">Hoàn tiền KH</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Gửi email đến: FLC.Ketoancongno@fpt.com
@@ -897,7 +890,7 @@ Tiêu đề: [Mã shop]_HOÀN TIỀN</div>
 <a href="https://drive.google.com/drive/folders/12I7eY0PTt47Qptmfb2wzwdSFPhc5k2io" class="lnk" target="_blank">📎 Hướng dẫn gửi yêu cầu hoàn tiền</a>
 </div>
 </div>
-<div class="dsec">
+<div class="dsec" data-keywords="chuyen khoan ck doi soat qr code">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔍</span><span class="dsl">Kiểm tra giao dịch chuyển khoản</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Công cụ kiểm tra: report.frt.vn/report/phar/importBalanceReport</div>
@@ -972,9 +965,22 @@ Cú pháp: Mã shop (8****) · VD: 80073 · 81145 · 80244</div>
 • Khấu trừ tối đa: <strong>30% tổng thu nhập/tháng</strong> đến khi hoàn tất công nợ</div>
 </div>
 </div>
-<div class="dsec">
+<div class="dsec" data-keywords="can date tem vang kiem ke hsd">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">📅</span><span class="dsl">Kiểm kê cận date</span><span class="cv">▼</span></div>
 <div class="dsec-body">
+<div class="nacc">
+<div class="nacc-hdr" onclick="togNested(this)"><span class="sic">📊</span><span class="nt">KPI hàng cận date</span><span class="cv">▼</span></div>
+<div class="nacc-body">
+<div class="ba">📌 X = Doanh số bán hàng cận date / Tổng giá trị hàng kiểm kê cận date trong tháng</div>
+<div class="tw"><table><thead><tr><th>Kết quả X</th><th>Hệ số</th></tr></thead><tbody><tr><td>X &lt; 80%</td><td>× 0.7</td></tr><tr><td>X ≥ 80%</td><td>× 1.1</td></tr></tbody></table></div>
+<div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>HSD ≤ 2 tháng · Hàng đặc trị · Hàng cắt liều · Thuốc kê đơn không có sức bán 90 ngày · Kit test Covid · Tem hồng · Shop mở bán &lt; 2 tháng</div>
+<div class="bn"><div class="nt">⚠️ Lưu ý</div>Hàng cận date CHỈ tính khi bán bằng BARCODE CẬN DATE đã dán khi kiểm kê</div>
+<a href="https://qms.fpt.com/document-detail/c11c55c7-b8f2-4dc7-b056-d637712b9ddf/view" class="lnk" target="_blank">📎 Quy định tính KPI cận date</a>
+
+<div class="bn"><div class="nt">📧 Vấn đề về KPI cận date:</div>Thắc mắc hoặc khiếu nại về KPI cận date → mail <strong>FLC.QA@fpt.com</strong></div>
+</div>
+</div>
+
 <div class="ba">📌 Ngày 26-28 hàng tháng · Hệ thống Auto đẩy phiếu về mRSA</div>
 <div class="stl">Ngưỡng kiểm kê — TEM VÀNG</div>
 <div class="tw"><table><thead><tr><th>Ngành hàng</th><th>Ngưỡng HSD</th></tr></thead><tbody><tr><td>Thuốc, TPCN, TBYT, FMCG</td><td>Dưới 9 tháng</td></tr><tr><td>Dược mỹ phẩm, Kit test</td><td>Dưới 12 tháng</td></tr><tr><td>Trà, bánh kẹo, TP bổ dưỡng</td><td>Dưới 4 tháng</td></tr></tbody></table></div>
@@ -994,18 +1000,7 @@ Tem hồng → chỉ kiểm số lượng, không in lại barcode</div>
 • Tiến hành kiểm kê cận date bình thường ở các kỳ tiếp theo</div>
 <div class="bg2"><div class="gnt">💡 Lưu ý:</div>Nếu đã có dòng note của <strong>Ngành hàng trên HO</strong> → không cần gửi mail thắc mắc</div>
 
-<div class="nacc">
-<div class="nacc-hdr" onclick="togNested(this)"><span class="sic">📊</span><span class="nt">KPI hàng cận date</span><span class="cv">▼</span></div>
-<div class="nacc-body">
-<div class="ba">📌 X = Doanh số bán hàng cận date / Tổng giá trị hàng kiểm kê cận date trong tháng</div>
-<div class="tw"><table><thead><tr><th>Kết quả X</th><th>Hệ số</th></tr></thead><tbody><tr><td>X &lt; 80%</td><td>× 0.7</td></tr><tr><td>X ≥ 80%</td><td>× 1.1</td></tr></tbody></table></div>
-<div class="bg2"><div class="gnt">✅ Loại trừ KPI:</div>HSD ≤ 2 tháng · Hàng đặc trị · Hàng cắt liều · Thuốc kê đơn không có sức bán 90 ngày · Kit test Covid · Tem hồng · Shop mở bán &lt; 2 tháng</div>
-<div class="bn"><div class="nt">⚠️ Lưu ý</div>Hàng cận date CHỈ tính khi bán bằng BARCODE CẬN DATE đã dán khi kiểm kê</div>
-<a href="https://qms.fpt.com/document-detail/c11c55c7-b8f2-4dc7-b056-d637712b9ddf/view" class="lnk" target="_blank">📎 Quy định tính KPI cận date</a>
 
-<div class="bn"><div class="nt">📧 Vấn đề về KPI cận date:</div>Thắc mắc hoặc khiếu nại về KPI cận date → mail <strong>FLC.QA@fpt.com</strong></div>
-</div>
-</div>
 </div>
 </div>
 <div class="dsec">
@@ -1111,7 +1106,7 @@ Phải có <strong>ít nhất 1 NV ngồi tại quầy</strong> để KH nhìn v
 <div class="ba">📞 Thắc mắc liên hệ FQA: 0936.026.410</div>
 </div>
 </div>
-<div class="sec">
+<div class="sec" data-keywords="xuat su dung eho">
 <div class="sec-hdr" onclick="tog(this)"><span class="sic">🧊</span><span class="sl">Vận hành tủ lạnh</span><span class="cv">▼</span></div>
 <div class="sec-body">
 <div class="tw"><table><thead><tr><th>Thiết bị</th><th>Cài đặt</th></tr></thead><tbody><tr><td>Tủ Aqua</td><td>Mức 3-4/7</td></tr><tr><td>Tủ màn hình kỹ thuật số</td><td>Cài 2-6°C</td></tr></tbody></table></div>
@@ -1154,7 +1149,7 @@ Phải có <strong>ít nhất 1 NV ngồi tại quầy</strong> để KH nhìn v
 <div class="ch" data-p="3">
 <div class="ch-hdr" onclick="tog(this)"><span class="chn">CH.1</span><span class="cht2">Tiếp đoàn</span><span class="cv">▼</span></div>
 <div class="ch-body">
-<div class="dsec">
+<div class="dsec" data-keywords="tiep doan syt gpp thanh tra kiem tra">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🏛️</span><span class="dsl">Tiếp đoàn SYT/GPP</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 ĐẦU MỐI QUAN TRỌNG: Group FPTChat: <strong>"FLC Giấy Tờ Miền Bắc 2"</strong> — GHIM ĐẦU NHÓM</div>
@@ -1313,7 +1308,7 @@ Báo HC ngay khi hư/sắp hết hạn: FLC.HanhChinh@fpt.com</div>
 <div class="ch" data-p="3">
 <div class="ch-hdr" onclick="tog(this)"><span class="chn">CH.2</span><span class="cht2">Hành chính</span><span class="cv">▼</span></div>
 <div class="ch-body">
-<div class="dsec">
+<div class="dsec" data-keywords="pccc phong chay chua chay ho so pccc">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔥</span><span class="dsl">PCCC</span><span class="cv">▼</span></div>
 <div class="dsec-body">
 <div class="ba">📌 Hồ sơ 9 loại · hạn không quá 1 năm · Định kỳ 1 năm/lần · <strong>Báo HC vùng ngay khi có đoàn</strong></div>
@@ -1657,6 +1652,17 @@ VD: Doanh số shop 500 triệu → Doanh số cắt liều cần đạt tối t
 <div class="ch" data-p="5" style="border-left:3px solid #C62828">
 <div class="ch-hdr" onclick="tog(this)"><span class="chn" style="color:#C62828;background:#FFEBEE;border-color:#EF9A9A">CH.1</span><span class="cht2">Kỷ luật & Vi phạm</span><span class="cv">▼</span></div>
 <div class="ch-body">
+<div class="dsec">
+<div class="dsec-hdr" onclick="tog(this)"><span class="sic">⚖️</span><span class="dsl">Quy định nhập hàng & xuất hàng LCNB</span><span class="cv">▼</span></div>
+<div class="dsec-body">
+<div class="stl">Quy định nhập hàng</div>
+<div class="tw"><table><thead><tr><th>Vi phạm</th><th>Hình phạt</th></tr></thead><tbody><tr><td>Không kiểm hàng dưới camera → hàng hư/thất thoát</td><td>Bồi thường 100% giá trị hàng</td></tr><tr><td>Nhập hàng trễ quá 24h</td><td>Lần 1: Nhắc nhở · Từ lần 2: 50.000đ/ngày (tối đa 500.000đ)</td></tr><tr><td>Shop mới ≤ 30 ngày</td><td>Bắt đầu tính từ D+30</td></tr></tbody></table></div>
+<div class="stl">Thời hạn LCNB & Xử phạt xuất hàng</div>
+<div class="tw"><table><thead><tr><th>Hình thức</th><th>Thời hạn</th><th>Phạt trễ</th></tr></thead><tbody><tr><td>Shop → Shop (không qua KT)</td><td>3 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Shop (qua KT)</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Kho tổng → Shop</td><td>7 ngày</td><td>50.000đ/lệnh/ngày</td></tr><tr><td>Shop → Kho tổng (rút thừa)</td><td>3 ngày · SL ≥ 90%</td><td>Từ ngày 4: 50.000đ/ngày</td></tr></tbody></table></div>
+<div class="bw"><div class="wt">⚠️ Quy định:</div><div class="bw-body">• Shop &gt; 30 ngày: tính theo quy định · Shop ≤ 30 ngày: miễn phạt đến D+30<br>• Quá mốc chưa nhận hàng → <strong>chủ động liên hệ bộ phận gửi hàng</strong><br>• Bị phạt → mail <strong>FLC.QA@fpt.com</strong> + giải trình trên RSA</div></div>
+</div>
+</div>
+
 
 <div class="dsec" style="border-left:2px solid #EF9A9A">
 <div class="dsec-hdr" onclick="tog(this)"><span class="sic">🔴</span><span class="dsl">5 Kỷ luật "Thép" tập đoàn FRT</span><span class="cv">▼</span></div>
@@ -1771,16 +1777,60 @@ function buildIndex(){
 
 var PL = {'1':'🔧 Vận hành','2':'📦 Kho & KK','3':'🏛️ Quy định','4':'🎯 Kỹ năng'};
 
+// Normalize Vietnamese text - remove diacritics
+function norm(s){
+  return (s||'').toLowerCase()
+    .replace(/[àáạảãâầấậẩẫăặắẳẵà]/g,'a')
+    .replace(/[èéẹẻẽêềếệểễ]/g,'e')
+    .replace(/[ìíịỉĩ]/g,'i')
+    .replace(/[òóọỏõôồốộổỗơờớợởỡ]/g,'o')
+    .replace(/[ùúụủũưừứựửữ]/g,'u')
+    .replace(/[ỳýỵỷỹ]/g,'y')
+    .replace(/[đ]/g,'d')
+    .replace(/[ÀÁẠẢÃÂẦẤẬẨẪĂẶẮẲẴ]/g,'a')
+    .replace(/[ÈÉẸẺẼÊỀẾỆỂỄ]/g,'e')
+    .replace(/[ÌÍỊỈĨ]/g,'i')
+    .replace(/[ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ]/g,'o')
+    .replace(/[ÙÚỤỦŨƯỪỨỰỬỮ]/g,'u')
+    .replace(/[ỲÝỴỶỸ]/g,'y')
+    .replace(/[Đ]/g,'d');
+}
+
+function scoreIdx(idx, q, useNorm){
+  var fn = useNorm ? norm : function(s){ return (s||'').toLowerCase(); };
+  var scored = [];
+  idx.forEach(function(i){
+    var fLabel = fn(i.label);
+    var fKw = fn(i.keywords||'');
+    var fTxt = fn(i.txt);
+    var fCh = fn(i.chTitle);
+    var score = 0;
+    if(fLabel.indexOf(q) === 0) score = 100;
+    else if(fLabel.indexOf(q) >= 0) score = 80;
+    else if(fKw.indexOf(q) >= 0) score = 60;
+    else if(fCh.indexOf(q) >= 0) score = 40;
+    else if(fTxt.indexOf(q) >= 0) score = 20;
+    if(score > 0) scored.push({item:i, score:score});
+  });
+  scored.sort(function(a,b){ return b.score - a.score; });
+  return scored.map(function(s){ return s.item; });
+}
+
 function doSearch(q){
-  q = (q||'').toLowerCase().trim();
+  q = (q||'').trim();
   var out = document.getElementById('sout');
   var emp = document.getElementById('empty');
   out.innerHTML = '';
   if(!q){ out.style.display='none'; emp.style.display='none'; return; }
-  buildIndex(); // lazy — chỉ build khi search lần đầu
-  var res = idx.filter(function(i){
-    return i.label.toLowerCase().indexOf(q)>=0 || i.txt.toLowerCase().indexOf(q)>=0;
-  });
+  buildIndex();
+  // Step 1: Tìm có dấu trước (lowercase)
+  var qLower = q.toLowerCase();
+  var res = scoreIdx(idx, qLower, false);
+  // Step 2: Nếu không có kết quả → fallback tìm không dấu
+  if(!res.length){
+    var qNorm = norm(q);
+    res = scoreIdx(idx, qNorm, true);
+  }
   if(!res.length){ out.style.display='none'; emp.style.display='block'; return; }
   emp.style.display='none'; out.style.display='flex';
   res.forEach(function(i){
